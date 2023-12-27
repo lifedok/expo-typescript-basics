@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Welcome from "./components/welcome";
-import { getPokemonList } from "./services/user-service/user.service";
+import Welcome from "./src/components/welcome";
+import { getPokemonList } from "./src/services/user-service/user.service";
 import { useEffect, useState } from "react";
 import Constants from "expo-constants";
 import Storybook from "./.storybook";
