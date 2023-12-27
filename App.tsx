@@ -3,8 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import Welcome from "./components/welcome";
 import { getPokemonList } from "./services/user-service/user.service";
 import { useEffect, useState } from "react";
-// npx sb@latest init --type react_native
-export default function App() {
+import Constants from "expo-constants";
+import Storybook from "./.storybook";
+
+function App() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -27,6 +29,8 @@ export default function App() {
     </View>
   );
 }
+
+export default Constants.expoConfig?.extra?.storybookEnabled ? Storybook : App;
 
 const styles = StyleSheet.create({
   container: {
