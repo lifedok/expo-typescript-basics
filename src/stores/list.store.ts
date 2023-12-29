@@ -2,18 +2,43 @@
 // import { injectable } from 'inversify';
 //
 // @injectable()
-export class ListStore {
+import { action, makeObservable, observable } from "mobx";
+
+export default class ListStore {
+  static _name = "listStore";
+
+  @observable
+  public list: {};
+
+  @action setList(value: {}) {
+    this.list = value;
+  }
+
+  @observable
+  public isLoadingList: boolean = false;
+
+  @action setIsLoadingList(value: boolean) {
+    this.isLoadingList = value;
+  }
+
+  constructor() {
+    makeObservable(this)
+  }
 
   async loadList(): Promise<void> {
-    try{
-
-    }catch(err) {
+    try {
+      this.setIsLoadingList(true);
+      const data = getPokemonList();
+      this.setList(data);
+    } catch (err) {
+      console.error('Error fetching list data:', err);
       throw err;
     } finally {
-      // await getPokemonList()
+      this.setIsLoadingList(false)
     }
   }
 }
+
 //   static _name = 'poolsStore';
 //
 //   static readonly defaultCount = 25;
