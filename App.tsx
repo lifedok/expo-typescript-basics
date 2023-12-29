@@ -1,21 +1,28 @@
+import React, { Component } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Welcome from "./components/welcome";
+import Constants from "expo-constants";
+import Storybook from "./.storybook";
+import { ListPage } from "./src/pages/list-page/list-page";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      {/*<Welcome/>*/}
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+class App extends Component<{}, {}> {
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <ListPage/>
+        <StatusBar style="auto" />
+      </View>
+    );
+  }
 }
+
+export default Constants.expoConfig?.extra?.storybookEnabled ? Storybook : App;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'mediumslateblue',
     alignItems: 'center',
     justifyContent: 'center',
   },

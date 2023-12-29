@@ -1,5 +1,5 @@
 import { Text } from "react-native";
 
 export default function Welcome() {
-  return <Text>Hello !!</Text>
+  return <Text>Sonya Natan kuku</Text>
 }
