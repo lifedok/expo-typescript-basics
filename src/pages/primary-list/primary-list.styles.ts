@@ -6,6 +6,5 @@ export const PrimaryListStyles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    // gap: 6,
   }
 });

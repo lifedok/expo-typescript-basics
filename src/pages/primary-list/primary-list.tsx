@@ -62,10 +62,10 @@ export class PrimaryList extends Component<{}, {}> {
       <View style={PrimaryListStyles.container}>
         {
           this.list.map((item, index) => {
-            console.log('item', item);
+            // console.log('item', item);
             const url = getPokemonImage(index + 1);
-            const json = item.url;
-            console.log('json', json)
+            // const json = item.url;
+            // console.log('json', json)
             return (
               <ListItem
                 key={`${item.name}_${index}`}
