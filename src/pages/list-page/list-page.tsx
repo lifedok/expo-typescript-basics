@@ -3,8 +3,10 @@ import { makeObservable } from "mobx";
 import { View, Text } from "react-native";
 import { inject, observer } from "mobx-react";
 import ListStore from "../../stores/list.store";
-import Welcome from "../../components/welcome";
 
+const dataList = [
+  {id: ''}
+]
 // @inject(ListStore._name)
 // @observer
 export class ListPage extends Component<{}, {}> {
@@ -37,8 +39,9 @@ export class ListPage extends Component<{}, {}> {
     // console.log('this.listStore2', this.listStore2.list);
     return (
       <View>
-        <Text>some text</Text>
-        <Welcome/>
+        {
+          <Text>12</Text>
+        }
       </View>
     );
   }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
-import { MyButton } from './Button';
+import { Button } from './button';
 
-const MyButtonMeta = {
-  title: 'MyButton',
-  component: MyButton,
+const ButtonMeta = {
+  title: 'Simple-components/Button',
+  component: Button,
   argTypes: {
     onPress: { action: 'pressed the button' },
   },
@@ -20,11 +20,11 @@ const MyButtonMeta = {
   ],
 };
 
-export default MyButtonMeta;
+export default ButtonMeta;
 
-export const Basic = {};
+export const ButtonDefault = {};
 
-export const AnotherExample = {
+export const ButtonSecondary = {
   args: {
     text: 'Another example',
   },
