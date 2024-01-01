@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { action, makeObservable, observable } from "mobx";
 import { View, Alert } from "react-native";
 import { inject, observer } from "mobx-react";
-import ListStore from "../../stores/list.store";
 import { ListItem } from "./list-item/list-item";
 import { getPokemonImage, getPokemonList } from "../../services/user-service/user.service";
+import { PrimaryListStyles } from "./primary-list.styles";
 
 interface ListItemProps {
   name: string,
@@ -58,12 +58,8 @@ export class PrimaryList extends Component<{}, {}> {
 
 
   render() {
-    const image = 'https://i.pinimg.com/564x/d0/91/c2/d091c214dca29647552651f2549f0f4b.jpg';
-    const title = 'Avatars name';
-    const description = 'Avatars description';
-    console.log('this.list', this.list)
     return (
-      <View>
+      <View style={PrimaryListStyles.container}>
         {
           this.list.map((item, index) => {
             console.log('item', item);
@@ -74,7 +70,6 @@ export class PrimaryList extends Component<{}, {}> {
               <ListItem
                 key={`${item.name}_${index}`}
                 title={item.name}
-                description={description}
                 imageUrl={url}/>
             )
           })
