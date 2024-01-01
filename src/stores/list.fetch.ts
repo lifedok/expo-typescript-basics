@@ -10,7 +10,7 @@ const POKEMON_API = 'https://pokeapi.co/api/v2/';
 //   }
 // }
 
-async function getPokemonList() {
+export async function getPokemonList() {
   const response = await fetch(POKEMON_API + "pokemon?limit=151&offset=0");
   const data = await response.json();
 
