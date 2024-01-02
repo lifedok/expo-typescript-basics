@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { action, makeObservable, observable } from "mobx";
-import { View, Alert, ActivityIndicator, Text, FlatList } from "react-native";
+import { View, Alert, ActivityIndicator, Text, ScrollView, RefreshControl } from "react-native";
 import { inject, observer } from "mobx-react";
 import { getPokemonList } from "../../services/user-service/user.service";
 import { List } from "./list/list";
@@ -63,11 +63,17 @@ export class PrimaryView extends Component<{}, {}> {
       this.isLoading ?
         this.renderPreload()
         :
-        <View style={PrimaryViewStyles.container}>
-          <PrimaryWelcome/>
+        <ScrollView
+          contentContainerStyle={PrimaryViewStyles.contentContainer}
+          alwaysBounceVertical={false}
+          refreshControl={<RefreshControl refreshing={this.isLoading} onRefresh={() => this.updateListData()}/>}
+        >
+          <View style={PrimaryViewStyles.container}>
+            <PrimaryWelcome/>
 
-          <List list={this.list}></List>
-        </View>
+            <List list={this.list}></List>
+          </View>
+        </ScrollView>
     )
   }
 }

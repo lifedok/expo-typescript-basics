@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from 'react';
-import { StyleSheet, StatusBar, View, ScrollView } from 'react-native';
+import { StyleSheet, StatusBar, View, ScrollView, RefreshControl } from 'react-native';
 import Constants from "expo-constants";
 import Storybook from "./.storybook";
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
@@ -38,11 +38,9 @@ function App() {
 
       <View style={styles.background}>
         <SafeAreaView style={[styles.safeArea]}>
-          <ScrollView
-            contentContainerStyle={styles.contentContainer}
-            alwaysBounceVertical={false}>
-            <PrimaryView/>
-          </ScrollView>
+
+          <PrimaryView/>
+
         </SafeAreaView>
       </View>
     </SafeAreaProvider>
@@ -62,11 +60,5 @@ const styles = StyleSheet.create({
     flex: 1,
     // backgroundColor: paddingColor,
     borderRadius: 16,
-  },
-  contentContainer: {
-    flexGrow: 1,
-    backgroundColor: '#5c4db5',
-    borderBottomLeftRadius: 23,
-    borderBottomRightRadius: 23,
   },
 });
