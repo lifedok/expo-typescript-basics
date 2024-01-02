@@ -33,6 +33,7 @@ export function getPokemonImage(id: number) {
   // img.src = 'data:image/svg+xml;base64,'+window.btoa(svgStr);
 
   // return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
+  // return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/025.svg`
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
   // return `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`
 }

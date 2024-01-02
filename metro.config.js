@@ -23,7 +23,10 @@ module.exports = (() => {
   config.resolver = {
     ...resolver,
     assetExts: resolver.assetExts.filter((ext) => ext !== "svg"),
-    sourceExts: [...resolver.sourceExts, "svg"]
+    sourceExts: [...resolver.sourceExts, "svg"],
+    alias: {
+      'react-native-svg': 'react-native-svg-web'
+    }
   };
 
   return config;

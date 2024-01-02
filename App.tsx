@@ -3,7 +3,7 @@ import { StyleSheet, StatusBar, View, ScrollView } from 'react-native';
 import Constants from "expo-constants";
 import Storybook from "./.storybook";
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { PrimaryList } from "./src/pages/primary-list/primary-list";
+import { PrimaryView } from "./src/pages/primary-view/primary-view";
 import { getAllPokemon, getPokemon } from "./src/services/user-service/user.service";
 
 function App() {
@@ -40,9 +40,8 @@ function App() {
         <SafeAreaView style={[styles.safeArea]}>
           <ScrollView
             contentContainerStyle={styles.contentContainer}
-            alwaysBounceVertical={false}
-          >
-            <PrimaryList/>
+            alwaysBounceVertical={false}>
+            <PrimaryView/>
           </ScrollView>
         </SafeAreaView>
       </View>
@@ -52,7 +51,7 @@ function App() {
 
 export default Constants.expoConfig?.extra?.storybookEnabled ? Storybook : App;
 
-const marginColor = '#5f27cd';
+const marginColor = '#fff';
 const paddingColor = '#10ac84';
 const styles = StyleSheet.create({
   background: {
@@ -61,11 +60,13 @@ const styles = StyleSheet.create({
   },
   safeArea: {
     flex: 1,
-    backgroundColor: paddingColor,
+    // backgroundColor: paddingColor,
     borderRadius: 16,
   },
   contentContainer: {
     flexGrow: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#5c4db5',
+    borderBottomLeftRadius: 23,
+    borderBottomRightRadius: 23,
   },
 });
