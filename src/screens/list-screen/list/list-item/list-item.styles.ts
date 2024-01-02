@@ -4,7 +4,7 @@ import {
   LIST_RIGHT_PADDING,
   PRIMARY_VIEW_LEFT_PADDING,
   PRIMARY_VIEW_RIGHT_PADDING
-} from "../../consts";
+} from "../../../consts";
 
 function cutLastNumbers(n: number): number {
   return ((parseInt(String(n * 100))) / 100);

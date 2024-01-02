@@ -9,6 +9,13 @@ export async function getPokemonList() {
     return data.results;
 }
 
+export async function getPokemonItem(id: number) {
+    const response = await fetch(POKEMON2_API);
+    const data = await response.json();
+
+    return data.results;
+}
+
 export async function getAllPokemon(url) {
     return new Promise((resolve, reject) => {
         fetch(url).then(res => res.json())

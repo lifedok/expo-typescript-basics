@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { ListStyles } from "./list.styles";
 import { getPokemonImage } from "../../../services/user-service/user.service";
-import { ListItem } from "../list-item/list-item";
-import { ListItemProps } from "../list-item/list-item.interface";
+import { ListItem } from "./list-item/list-item";
+import { ListItemProps } from "./list-item/list-item.interface";
 import { View } from "react-native";
 
 

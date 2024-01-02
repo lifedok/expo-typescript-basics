@@ -3,7 +3,7 @@ import { View, Text, Image } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import { PrimaryWelcomeStyles } from "./primary-welcome.styles";
 import Constants from 'expo-constants'
-import Pickachu from './../../../assets/svgs/pickachu.svg';
+import Pickachu from '../../../assets/svgs/pickachu.svg';
 const isRunningInExpoGo = Constants.appOwnership === 'expo';
 
 export class PrimaryWelcome extends Component<{}, {}> {
