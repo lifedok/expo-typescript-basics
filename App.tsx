@@ -5,6 +5,7 @@ import Storybook from "./.storybook";
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { getAllPokemon, getPokemon } from "./src/services/user-service/user.service";
 import { ListScreen } from "./src/screens/list-screen/list-screen";
+import { ItemScreen } from "./src/screens/item-screen/item-screen";
 
 function App() {
   const [pokemonData, setPokemonData] = useState([])
@@ -39,7 +40,8 @@ function App() {
       <View style={styles.background}>
         <SafeAreaView style={[styles.safeArea]}>
 
-          <ListScreen/>
+          {/*<ListScreen/>*/}
+          <ItemScreen/>
 
         </SafeAreaView>
       </View>
