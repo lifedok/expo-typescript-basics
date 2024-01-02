@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { action, makeObservable, observable } from "mobx";
 import { View, Alert, ActivityIndicator, Text, ScrollView, RefreshControl } from "react-native";
-import { inject, observer } from "mobx-react";
+import { observer } from "mobx-react";
 import { getPokemonList } from "../../services/user-service/user.service";
 import { List } from "./list/list";
-import { ListItemProps } from "./list-item/list-item.interface";
+import { ListItemProps } from "./list/list-item/list-item.interface";
 import { PrimaryWelcome } from "./primary-welcome/primary-welcome";
-import { PrimaryViewStyles } from "./primary-view.styles";
+import { ListScreenStyles } from "./list-screen.styles";
 
 @observer
-export class PrimaryView extends Component<{}, {}> {
+export class ListScreen extends Component<{}, {}> {
 
   @observable public isLoading: boolean = true;
 
@@ -64,11 +64,11 @@ export class PrimaryView extends Component<{}, {}> {
         this.renderPreload()
         :
         <ScrollView
-          contentContainerStyle={PrimaryViewStyles.contentContainer}
+          contentContainerStyle={ListScreenStyles.contentContainer}
           alwaysBounceVertical={false}
           refreshControl={<RefreshControl refreshing={this.isLoading} onRefresh={() => this.updateListData()}/>}
         >
-          <View style={PrimaryViewStyles.container}>
+          <View style={ListScreenStyles.container}>
             <PrimaryWelcome/>
 
             <List list={this.list}></List>
