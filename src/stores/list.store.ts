@@ -3,6 +3,7 @@
 //
 // @injectable()
 import { action, makeObservable, observable } from "mobx";
+import { getPokemonList } from "./list.fetch";
 
 export default class ListStore {
   static _name = "listStore";

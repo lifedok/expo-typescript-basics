@@ -20,6 +20,8 @@ global.STORIES = [
 
 import "@storybook/addon-ondevice-controls/register";
 import "@storybook/addon-ondevice-actions/register";
+import "@storybook/addon-ondevice-notes/register";
+import "@storybook/addon-ondevice-backgrounds/register";
 
 import { argsEnhancers } from "@storybook/addon-actions/dist/modern/preset/addArgs";
 
@@ -47,7 +49,8 @@ try {
 
 const getStories = () => {
   return {
-    "./src/components/Button/Button.stories.js": require("../src/components/simple-components/Button/Button.stories.js"),
+    "./src/components/composite-components/list-item/list-item.stories.tsx": require("../src/components/composite-components/list-item/list-item.stories.tsx"),
+    "./src/components/simple-components/button/button.stories.tsx": require("../src/components/simple-components/button/button.stories.tsx"),
   };
 };
 
