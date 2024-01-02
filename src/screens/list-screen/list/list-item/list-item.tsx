@@ -2,6 +2,7 @@ import * as React from "react";
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import { ListItemProps } from "./list-item.interface";
 import { ListItemStyles } from "./list-item.styles";
+import { ListItemNavigation } from "./list-item-navigation/list-item-navigation";
 
 export class ListItem extends React.Component<ListItemProps, {}> {
 
@@ -18,7 +19,7 @@ export class ListItem extends React.Component<ListItemProps, {}> {
     const {url, name} = this.props;
     return (
       <View style={ListItemStyles.wrapper}>
-        <TouchableOpacity>
+        <ListItemNavigation navigationName={'Item'}>
           <View style={[ListItemStyles.container, {backgroundColor: this.genHexCode, cursor: 'pointer'}]}>
             <View style={ListItemStyles.inner}>
               <Image style={ListItemStyles.image} resizeMode="contain" source={{uri: url}}/>
@@ -27,7 +28,7 @@ export class ListItem extends React.Component<ListItemProps, {}> {
               </View>
             </View>
           </View>
-        </TouchableOpacity>
+        </ListItemNavigation>
       </View>
     );
   }
