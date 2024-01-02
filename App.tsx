@@ -30,8 +30,8 @@ function App() {
     setPokemonData(_pokemonData)
   }
 
-  console.log('loading', loading)
-  console.log('pokemonData', pokemonData);
+  // console.log('loading', loading)
+  // console.log('pokemonData', pokemonData);
   return (
     <SafeAreaProvider>
       <StatusBar backgroundColor="transparent"/>

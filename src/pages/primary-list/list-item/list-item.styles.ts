@@ -7,7 +7,7 @@ function cutLastNumbers(n: number): number {
 function getListItemWidth(): number {
   const width = Dimensions.get('window').width;
   const roundingErrorDimensions = 0.1;
-  const maxWidth = 145;
+  const maxWidth = 110;
 
   const countItemsRow = Math.floor(width / maxWidth);
   return cutLastNumbers(width / countItemsRow) - roundingErrorDimensions;
@@ -20,7 +20,7 @@ const imageSize = width - padding * 2;
 export const ListItemStyles = StyleSheet.create({
   wrapper: {
     width: width,
-    padding: 6
+    padding: 2
   },
   container: {
     padding: padding,
@@ -54,7 +54,7 @@ export const ListItemStyles = StyleSheet.create({
     width: '100%'
   },
   title: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '700',
   }
 });

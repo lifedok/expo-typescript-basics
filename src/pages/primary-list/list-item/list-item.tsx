@@ -5,18 +5,6 @@ import { observer } from "mobx-react";
 import { action, makeObservable, observable } from "mobx";
 import responsiveContainer from "../responsive-container/responsive-container";
 
-
-function getListItemWidth(): number {
-  const width = Dimensions.get('window').width; // 975
-  const maxWidth = 145;
-  const countItemsRow = Math.floor(width / maxWidth); // 6.72 => 6
-  return  width / countItemsRow;
-}
-
-const padding = 12;
-const width = getListItemWidth();
-const imageSize = width - padding * 2;
-
 interface IListItem {
   imageUrl: string;
   title: string;

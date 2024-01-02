@@ -28,5 +28,11 @@ export function getPokemon({ url }) {
 }
 
 export function getPokemonImage(id: number) {
-  return `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${id}.svg`
+  // let img = new Image();
+  // let serializer = new XMLSerializer();
+  // img.src = 'data:image/svg+xml;base64,'+window.btoa(svgStr);
+
+  // return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+  // return `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`
 }

@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import { action, makeObservable, observable } from "mobx";
-import { View, Alert } from "react-native";
+import { View, Alert, Image } from "react-native";
 import { inject, observer } from "mobx-react";
 import { ListItem } from "./list-item/list-item";
 import { getPokemonImage, getPokemonList } from "../../services/user-service/user.service";
 import { PrimaryListStyles } from "./primary-list.styles";
 
+require
+// https://pokeapi.co/api/v2/pokemon/
 interface ListItemProps {
   name: string,
   url: string
 }
+
 const dataList = [
   {id: ''}
 ]
@@ -62,10 +65,7 @@ export class PrimaryList extends Component<{}, {}> {
       <View style={PrimaryListStyles.container}>
         {
           this.list.map((item, index) => {
-            // console.log('item', item);
             const url = getPokemonImage(index + 1);
-            // const json = item.url;
-            // console.log('json', json)
             return (
               <ListItem
                 key={`${item.name}_${index}`}
