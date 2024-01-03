@@ -10,7 +10,7 @@ export const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="List" component={ListScreen} options={{title: 'Экран списка покемонов'}}/>
+        <Stack.Screen name="List" component={ListScreen} options={{title: ''}}/>
         <Stack.Screen name="Home" component={HomeScreen} options={{title: 'Главный экран'}}/>
         <Stack.Screen name="Item" component={ItemScreen} options={{title: 'Элемент покемона'}}/>
       </Stack.Navigator>

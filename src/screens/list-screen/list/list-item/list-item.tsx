@@ -19,7 +19,7 @@ export class ListItem extends React.Component<ListItemProps, {}> {
     const {url, name} = this.props;
     return (
       <View style={ListItemStyles.wrapper}>
-        <ListItemNavigation navigationName={'Item'}>
+        <ListItemNavigation navigationName={'Item'} id={name} item={url}>
           <View style={[ListItemStyles.container, {backgroundColor: this.genHexCode, cursor: 'pointer'}]}>
             <View style={ListItemStyles.inner}>
               <Image style={ListItemStyles.image} resizeMode="contain" source={{uri: url}}/>

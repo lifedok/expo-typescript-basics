@@ -7,7 +7,7 @@ import { ItemScreenStyles } from "./item-screen.styles";
 import { getPokemonItem } from "../../services/user-service/user.service";
 
 @observer
-export class ItemScreen extends Component<{}, {}> {
+export class ItemScreen extends Component<{ props }, {}> {
 
   @observable public isLoading: boolean = true;
 
@@ -41,6 +41,9 @@ export class ItemScreen extends Component<{}, {}> {
   }
 
   componentDidMount() {
+    const {route: {params: {id, item}}} = this.props;
+    const {navigation} = this.props;
+    navigation.setOptions({title: id})
     this.updateItemData();
   }
 
@@ -57,9 +60,13 @@ export class ItemScreen extends Component<{}, {}> {
   }
 
   render() {
+    console.log('props', this.props)
+    const {route: {params: {id, item}}} = this.props;
     return (
       <View style={ItemScreenStyles.container}>
-        <Text style={ItemScreenStyles.text}>item description</Text>
+        <Text style={ItemScreenStyles.text}>
+          {id}
+        </Text>
       </View>
     )
   }
