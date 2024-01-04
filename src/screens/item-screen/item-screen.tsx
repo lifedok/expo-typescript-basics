@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { action, makeObservable, observable } from "mobx";
-import { View, Alert, ActivityIndicator, Text, Image } from "react-native";
+import { View, Alert, Image } from "react-native";
 import { observer } from "mobx-react";
 import { ListItemProps } from "../list-screen/list/list-item/list-item.interface";
 import { ItemScreenStyles } from "./item-screen.styles";
@@ -9,6 +9,8 @@ import { PreviewBlock } from "../../components/composite-components/preview-bloc
 import { IS_RUNNING_IN_EXPO_GO } from "../../shared/utils";
 import Pickachu from "../../assets/svgs/pickachu.svg";
 import { SharedStyles } from "../../shared/styles";
+import { ProgressList } from "./progress-list/progress-list";
+import { ListScreenMockData } from "./list-screen-mock.data";
 
 @observer
 export class ItemScreen extends Component<{ props }, {}> {
@@ -54,15 +56,6 @@ export class ItemScreen extends Component<{ props }, {}> {
   componentDidUpdate() {
   }
 
-  renderPreload() {
-    return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ActivityIndicator size={'large'}/>
-        <Text style={{marginTop: 12}}>Loading...</Text>
-      </View>
-    )
-  }
-
   render() {
     console.log('props', this.props)
     const {route: {params: {id, item}}} = this.props;
@@ -80,10 +73,7 @@ export class ItemScreen extends Component<{ props }, {}> {
           }
         </PreviewBlock>
 
-
-        <Text style={ItemScreenStyles.text}>
-          {id}
-        </Text>
+        <ProgressList list={ListScreenMockData}/>
       </View>
     )
   }

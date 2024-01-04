@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { action, makeObservable, observable } from "mobx";
-import { View, Alert, ActivityIndicator, Text, ScrollView, RefreshControl, Image } from "react-native";
+import { View, Alert, ScrollView, RefreshControl, Image } from "react-native";
 import { observer } from "mobx-react";
 import { getPokemonList } from "../../services/user-service/user.service";
 import { List } from "./list/list";
@@ -10,6 +10,7 @@ import { PreviewBlock } from "../../components/composite-components/preview-bloc
 import Pickachu from "../../assets/svgs/pickachu.svg";
 import { IS_RUNNING_IN_EXPO_GO } from "../../shared/utils";
 import { SharedStyles } from "../../shared/styles";
+import { LoaderWithInfo } from "../../components/composite-components/loader-with-info/loader-with-info";
 
 @observer
 export class ListScreen extends Component<{}, {}> {
@@ -52,19 +53,10 @@ export class ListScreen extends Component<{}, {}> {
   componentDidUpdate() {
   }
 
-  renderPreload() {
-    return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ActivityIndicator size={'large'}/>
-        <Text style={{marginTop: 12}}>Loading...</Text>
-      </View>
-    )
-  }
-
   render() {
     return (
       this.isLoading ?
-        this.renderPreload()
+        <LoaderWithInfo/>
         :
         <ScrollView
           contentContainerStyle={ListScreenStyles.contentContainer}
@@ -83,7 +75,7 @@ export class ListScreen extends Component<{}, {}> {
               }
             </PreviewBlock>
 
-            <List list={this.list}></List>
+            <List list={this.list}/>
           </View>
         </ScrollView>
     )
