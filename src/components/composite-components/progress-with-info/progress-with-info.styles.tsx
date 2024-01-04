@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
 
-export const ProgressItemStyles = StyleSheet.create({
+export const ProgressWithInfoStyles = StyleSheet.create({
   wrapper: {
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 4
+    gap: 4,
   },
   field: {
     width: '100%',
@@ -24,5 +25,4 @@ export const ProgressItemStyles = StyleSheet.create({
   label: {
     fontSize: 16
   }
-
 });
