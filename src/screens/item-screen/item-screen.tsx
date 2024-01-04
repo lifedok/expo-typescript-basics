@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { action, makeObservable, observable } from "mobx";
-import { View, Alert, ActivityIndicator, Text } from "react-native";
+import { View, Alert, ActivityIndicator, Text, Image } from "react-native";
 import { observer } from "mobx-react";
 import { ListItemProps } from "../list-screen/list/list-item/list-item.interface";
 import { ItemScreenStyles } from "./item-screen.styles";
 import { getPokemonItem } from "../../services/user-service/user.service";
+import { PreviewBlock } from "../../components/composite-components/preview-block/preview-block";
+import { IS_RUNNING_IN_EXPO_GO } from "../../shared/utils";
+import Pickachu from "../../assets/svgs/pickachu.svg";
 
 @observer
 export class ItemScreen extends Component<{ props }, {}> {
@@ -64,6 +67,18 @@ export class ItemScreen extends Component<{ props }, {}> {
     const {route: {params: {id, item}}} = this.props;
     return (
       <View style={ItemScreenStyles.container}>
+        <PreviewBlock info={id}>
+          {
+            IS_RUNNING_IN_EXPO_GO ?
+              <Pickachu width="100%" height="120" />
+              :
+              <Image source={{uri: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS5krfWpMHUZTJd2v6Bihpi9fEYrTh1jDxqqiOUh8ug-b_8L3PL'}}
+                     resizeMode="contain"
+                     style={{width:120, height:120, borderRadius: 12}}/>
+          }
+        </PreviewBlock>
+
+
         <Text style={ItemScreenStyles.text}>
           {id}
         </Text>

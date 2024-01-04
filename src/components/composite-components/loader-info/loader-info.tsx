@@ -6,7 +6,6 @@ export const LoaderInfo = () => {
     <View style={LoaderInfoStyles.content}>
       <ActivityIndicator size={'large'}/>
       <Text style={{marginTop: 12}}>Loading...</Text>
-      {/*<StatusBar theme={'auto'}/>*/}
     </View>
   );
 };
@@ -16,7 +15,5 @@ const LoaderInfoStyles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // height: '100%',
-    // backgroundColor: 'red'
   }
 });

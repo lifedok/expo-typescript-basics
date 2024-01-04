@@ -51,6 +51,7 @@ const getStories = () => {
   return {
     "./src/components/composite-components/list-item/list-item.stories.tsx": require("../src/components/composite-components/list-item/list-item.stories.tsx"),
     "./src/components/composite-components/loader-info/loader-info.stories.tsx": require("../src/components/composite-components/loader-info/loader-info.stories.tsx"),
+    "./src/components/composite-components/preview-block/preview-block.stories.tsx": require("../src/components/composite-components/preview-block/preview-block.stories.tsx"),
     "./src/components/simple-components/button/button.stories.tsx": require("../src/components/simple-components/button/button.stories.tsx"),
   };
 };

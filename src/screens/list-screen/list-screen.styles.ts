@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { PRIMARY_VIEW_LEFT_PADDING, PRIMARY_VIEW_RIGHT_PADDING } from "../consts";
+import { PRIMARY_VIEW_LEFT_PADDING, PRIMARY_VIEW_RIGHT_PADDING } from "../../shared/consts";
 
 export const ListScreenStyles = StyleSheet.create({
   contentContainer: {
@@ -9,7 +9,7 @@ export const ListScreenStyles = StyleSheet.create({
     borderBottomRightRadius: 23,
   },
   container: {
-    paddingTop: 32,
+    paddingTop: 12,
     paddingBottom: 6,
     paddingLeft: PRIMARY_VIEW_LEFT_PADDING,
     paddingRight: PRIMARY_VIEW_RIGHT_PADDING,

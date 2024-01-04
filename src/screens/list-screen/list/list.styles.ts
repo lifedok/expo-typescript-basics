@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { LIST_LEFT_PADDING, LIST_RIGHT_PADDING } from "../../consts";
+import { LIST_LEFT_PADDING, LIST_RIGHT_PADDING } from "../../../shared/consts";
 
 export const ListStyles = StyleSheet.create({
   container: {

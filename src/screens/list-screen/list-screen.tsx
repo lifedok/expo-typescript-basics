@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { action, makeObservable, observable } from "mobx";
-import { View, Alert, ActivityIndicator, Text, ScrollView, RefreshControl } from "react-native";
+import { View, Alert, ActivityIndicator, Text, ScrollView, RefreshControl, Image } from "react-native";
 import { observer } from "mobx-react";
 import { getPokemonList } from "../../services/user-service/user.service";
 import { List } from "./list/list";
 import { ListItemProps } from "./list/list-item/list-item.interface";
-import { PrimaryWelcome } from "./primary-welcome/primary-welcome";
 import { ListScreenStyles } from "./list-screen.styles";
+import { PreviewBlock } from "../../components/composite-components/preview-block/preview-block";
+import Pickachu from "../../assets/svgs/pickachu.svg";
+import { IS_RUNNING_IN_EXPO_GO } from "../../shared/utils";
 
 @observer
 export class ListScreen extends Component<{}, {}> {
@@ -69,7 +71,16 @@ export class ListScreen extends Component<{}, {}> {
           refreshControl={<RefreshControl refreshing={this.isLoading} onRefresh={() => this.updateListData()}/>}
         >
           <View style={ListScreenStyles.container}>
-            <PrimaryWelcome/>
+            <PreviewBlock info={'Your advertisement may be here ;)'}>
+              {
+                IS_RUNNING_IN_EXPO_GO ?
+                  <Pickachu width="100%" height="120" />
+                  :
+                  <Image source={{uri: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS5krfWpMHUZTJd2v6Bihpi9fEYrTh1jDxqqiOUh8ug-b_8L3PL'}}
+                         resizeMode="contain"
+                         style={{width:120, height:120, borderRadius: 12}}/>
+              }
+            </PreviewBlock>
 
             <List list={this.list}></List>
           </View>
