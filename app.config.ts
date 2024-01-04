@@ -6,10 +6,10 @@ export default ({config}: ConfigContext): ExpoConfig => ({
   slug: "expo-typescript-basics",
   version: "1.0.0",
   orientation: "portrait",
-  icon: "./src/assets/icon.png",
+  icon: "./src/assets/png/icon.png",
   userInterfaceStyle: "light",
   splash: {
-    image: "./src/assets/splash.png",
+    image: "./src/assets/png/pickachu.jpg",
     resizeMode: "contain",
     backgroundColor: "#ffffff"
   },
@@ -21,12 +21,12 @@ export default ({config}: ConfigContext): ExpoConfig => ({
   },
   android: {
     adaptiveIcon: {
-      foregroundImage: "./src/assets/adaptive-icon.png",
+      foregroundImage: "./src/assets/png/adaptive-icon.png",
       backgroundColor: "#ffffff"
     }
   },
   web: {
-    favicon: "./src/assets/favicon.png"
+    favicon: "./src/assets/png/favicon.png"
   },
   extra: {
     storybookEnabled: process.env.STORYBOOK === '1'

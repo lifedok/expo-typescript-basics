@@ -7,7 +7,7 @@ import { List } from "./list/list";
 import { ListItemProps } from "./list/list-item/list-item.interface";
 import { ListScreenStyles } from "./list-screen.styles";
 import { PreviewBlock } from "../../components/composite-components/preview-block/preview-block";
-import Pickachu from "../../assets/svgs/pickachu.svg";
+import Pickachu from "../../assets/svg/pickachu.svg";
 import { IS_RUNNING_IN_EXPO_GO } from "../../shared/utils";
 import { SharedStyles } from "../../shared/styles";
 import { LoaderWithInfo } from "../../components/composite-components/loader-with-info/loader-with-info";

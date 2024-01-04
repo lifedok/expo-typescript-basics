@@ -7,7 +7,7 @@ import { ItemScreenStyles } from "./item-screen.styles";
 import { getPokemonItem } from "../../services/user-service/user.service";
 import { PreviewBlock } from "../../components/composite-components/preview-block/preview-block";
 import { IS_RUNNING_IN_EXPO_GO } from "../../shared/utils";
-import Pickachu from "../../assets/svgs/pickachu.svg";
+import Pickachu from "../../assets/svg/pickachu.svg";
 import { SharedStyles } from "../../shared/styles";
 import { ProgressList } from "./progress-list/progress-list";
 import { ListScreenMockData } from "./list-screen-mock.data";
