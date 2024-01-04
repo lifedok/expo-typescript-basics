@@ -35,5 +35,6 @@ export function getPokemon({ url }) {
 }
 
 export function getPokemonImage(id: number) {
+  // https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/1.svg
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
 }

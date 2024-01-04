@@ -26,6 +26,6 @@ export const ButtonDefault = {};
 
 export const ButtonSecondary = {
   args: {
-    text: 'Another example',
+    text: 'button secondary',
   },
 };
