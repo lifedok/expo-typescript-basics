@@ -57,7 +57,6 @@ export class ItemScreen extends Component<{ props }, {}> {
   }
 
   render() {
-    console.log('props', this.props)
     const {route: {params: {id, item}}} = this.props;
     return (
       <View style={[SharedStyles.contentWrapper, ItemScreenStyles.container]}>

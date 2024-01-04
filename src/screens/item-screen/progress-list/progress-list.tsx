@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import { View } from "react-native";
-import { observer } from "mobx-react";
 import { ProgressListStyles } from "./progress-list.styles";
 import {
   ProgressWithInfoProps
@@ -11,7 +10,6 @@ interface ProgressListProps {
   list: ProgressWithInfoProps[]
 }
 
-@observer
 export class ProgressList extends PureComponent<ProgressListProps> {
 
   render() {

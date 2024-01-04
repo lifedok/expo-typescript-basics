@@ -1,8 +1,8 @@
 import * as React from "react";
-import { View, Image, Text, TouchableOpacity } from "react-native";
+import { View, Image, Text } from "react-native";
 import { ListItemProps } from "./list-item.interface";
 import { ListItemStyles } from "./list-item.styles";
-import { ListItemNavigation } from "./list-item-navigation/list-item-navigation";
+import { DirectionNavigator } from "../../../components/direction-navigator/direction-navigator";
 
 export class ListItem extends React.Component<ListItemProps, {}> {
 
@@ -19,7 +19,7 @@ export class ListItem extends React.Component<ListItemProps, {}> {
     const {url, name} = this.props;
     return (
       <View style={ListItemStyles.wrapper}>
-        <ListItemNavigation navigationName={'Item'} id={name} item={url}>
+        <DirectionNavigator navigationName={'Item'} id={name} item={url}>
           <View style={[ListItemStyles.container, {backgroundColor: this.genHexCode, cursor: 'pointer'}]}>
             <View style={ListItemStyles.inner}>
               <Image style={ListItemStyles.image} resizeMode="contain" source={{uri: url}}/>
@@ -28,7 +28,7 @@ export class ListItem extends React.Component<ListItemProps, {}> {
               </View>
             </View>
           </View>
-        </ListItemNavigation>
+        </DirectionNavigator>
       </View>
     );
   }

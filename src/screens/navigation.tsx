@@ -9,10 +9,21 @@ const Stack = createNativeStackNavigator();
 export const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="List" component={ListScreen} options={{title: ''}}/>
-        <Stack.Screen name="Home" component={HomeScreen} options={{title: 'Главный экран'}}/>
-        <Stack.Screen name="Item" component={ItemScreen} options={{title: 'Элемент покемона'}}/>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerMode: 'screen',
+          headerTintColor: 'white',
+          headerStyle: {backgroundColor: 'tomato'},
+        }}>
+        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="List" component={ListScreen} options={{title: 'List'}}/>
+        <Stack.Screen
+          name="Item"
+          component={ItemScreen}
+          options={{
+            gestureEnabled: false,
+          }}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
