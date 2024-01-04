@@ -1,13 +1,13 @@
 import React from 'react';
 import { View } from 'react-native';
 import { LoaderInfo } from "./loader-info";
-import { ViewCenterStyles } from "../../../shared/styles";
+import { SharedStyles } from "../../../shared/styles";
 
 const LoaderInfoMeta = {
   title: 'Composite-components/LoaderInfo',
   component: LoaderInfo,
   decorators: [
-    (Story) => <View style={{...ViewCenterStyles()}}><Story /></View>,
+    (Story) => <View style={SharedStyles.viewCenter}><Story /></View>,
   ],
 };
 

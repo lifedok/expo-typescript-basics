@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { ListItem } from './list-item';
-import { ViewCenterStyles } from "../../../shared/styles";
+import { SharedStyles } from "../../../shared/styles";
 
 const ListItemMeta = {
   title: 'Composite-components/ListItem',
@@ -10,7 +10,7 @@ const ListItemMeta = {
     text: 'info for list item',
   },
   decorators: [
-    (Story) => <View style={{...ViewCenterStyles()}}><Story /></View>,
+    (Story) => <View style={SharedStyles.viewCenter}><Story /></View>,
   ],
 };
 

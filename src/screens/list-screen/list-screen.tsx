@@ -9,6 +9,7 @@ import { ListScreenStyles } from "./list-screen.styles";
 import { PreviewBlock } from "../../components/composite-components/preview-block/preview-block";
 import Pickachu from "../../assets/svgs/pickachu.svg";
 import { IS_RUNNING_IN_EXPO_GO } from "../../shared/utils";
+import { SharedStyles } from "../../shared/styles";
 
 @observer
 export class ListScreen extends Component<{}, {}> {
@@ -70,7 +71,7 @@ export class ListScreen extends Component<{}, {}> {
           alwaysBounceVertical={false}
           refreshControl={<RefreshControl refreshing={this.isLoading} onRefresh={() => this.updateListData()}/>}
         >
-          <View style={ListScreenStyles.container}>
+          <View style={SharedStyles.contentWrapper}>
             <PreviewBlock info={'Your advertisement may be here ;)'}>
               {
                 IS_RUNNING_IN_EXPO_GO ?

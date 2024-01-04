@@ -16,10 +16,9 @@ export class PreviewBlock extends Component<PreviewBlockProps, {}> {
         <LinearGradient
           colors={['#ffffff', '#f8de76', '#9fcbf1']}
           style={PreviewBlockStyles.gradient}>
-          <Text style={PreviewBlockStyles.text}>{info}</Text>
-
           {children}
 
+          <Text style={PreviewBlockStyles.text}>{info}</Text>
         </LinearGradient>
       </View>
     );

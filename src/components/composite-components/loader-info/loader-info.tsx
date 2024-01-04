@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, ActivityIndicator, View, StatusBar } from 'react-native';
+import { Text, StyleSheet, ActivityIndicator, View } from 'react-native';
 
 export const LoaderInfo = () => {
   return (

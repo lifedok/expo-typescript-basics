@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { PreviewBlock } from "./preview-block";
-import { ViewCenterStyles } from "../../../shared/styles";
+import { SharedStyles } from "../../../shared/styles";
 
 const PreviewBlockMeta = {
   title: 'Composite-components/PreviewBlock',
@@ -11,7 +11,7 @@ const PreviewBlockMeta = {
     children: <Text>render some children</Text>
   },
   decorators: [
-    (Story) => <View style={{...ViewCenterStyles()}}><Story /></View>,
+    (Story) => <View style={SharedStyles.viewCenter}><Story /></View>,
   ],
 };
 

@@ -8,6 +8,7 @@ import { getPokemonItem } from "../../services/user-service/user.service";
 import { PreviewBlock } from "../../components/composite-components/preview-block/preview-block";
 import { IS_RUNNING_IN_EXPO_GO } from "../../shared/utils";
 import Pickachu from "../../assets/svgs/pickachu.svg";
+import { SharedStyles } from "../../shared/styles";
 
 @observer
 export class ItemScreen extends Component<{ props }, {}> {
@@ -66,15 +67,16 @@ export class ItemScreen extends Component<{ props }, {}> {
     console.log('props', this.props)
     const {route: {params: {id, item}}} = this.props;
     return (
-      <View style={ItemScreenStyles.container}>
+      <View style={[SharedStyles.contentWrapper, ItemScreenStyles.container]}>
         <PreviewBlock info={id}>
           {
             IS_RUNNING_IN_EXPO_GO ?
-              <Pickachu width="100%" height="120" />
+              <Pickachu width="100%" height="120"/>
               :
-              <Image source={{uri: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS5krfWpMHUZTJd2v6Bihpi9fEYrTh1jDxqqiOUh8ug-b_8L3PL'}}
-                     resizeMode="contain"
-                     style={{width:120, height:120, borderRadius: 12}}/>
+              <Image
+                source={{uri: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS5krfWpMHUZTJd2v6Bihpi9fEYrTh1jDxqqiOUh8ug-b_8L3PL'}}
+                resizeMode="contain"
+                style={{width: 120, height: 120, borderRadius: 12}}/>
           }
         </PreviewBlock>
 
