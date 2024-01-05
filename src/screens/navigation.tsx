@@ -13,19 +13,22 @@ export const Navigation = () => {
         initialRouteName="Home"
         screenOptions={{
           headerMode: 'screen',
-          headerTintColor: 'green',
-          headerStyle: {
-            // backgroundColor: 'tomato'
-          },
+          headerTintColor: 'black'
         }}>
-        <Stack.Screen name="Home" component={HomeScreen} options={{title: '', navigationBarHidden: false}}/>
-        <Stack.Screen name="List" component={ListScreen} options={{title: 'List'}}/>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{title: '', headerShown: false}}/>
+        <Stack.Screen
+          name="List"
+          component={ListScreen}
+          options={{
+            title: 'List',
+            // headerLeft: () => (<Text/>),
+        }}/>
         <Stack.Screen
           name="Item"
-          component={ItemScreen}
-          options={{
-            gestureEnabled: false,
-          }}/>
+          component={ItemScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

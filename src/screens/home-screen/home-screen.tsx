@@ -13,11 +13,14 @@ export class HomeScreen extends Component<{}, {}> {
       <View style={HomeScreenStyles.container}>
         <ImageBackground source={Images.home} resizeMode={"cover"} style={HomeScreenStyles.image}>
           <Image resizeMode="contain" source={Images.logo}/>
-          <Image resizeMode="contain" style={{width:120, height:120, borderRadius: 12}} source={{uri: 'https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/1.svg'}}/>
+          <Image resizeMode="contain" style={{width: 120, height: 120, borderRadius: 12}}
+                 source={{uri: 'https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/1.svg'}}/>
 
-          <DirectionNavigator navigationName={'List'} id={name} item={url}>
-            <Button>Switch  -></Button>
-          </DirectionNavigator>
+          <Button>
+            <DirectionNavigator navigationName={'List'} id={name} item={url}>
+              <Text>Switch -></Text>
+            </DirectionNavigator>
+          </Button>
         </ImageBackground>
       </View>
     )
