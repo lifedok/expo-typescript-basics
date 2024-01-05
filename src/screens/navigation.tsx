@@ -13,10 +13,12 @@ export const Navigation = () => {
         initialRouteName="Home"
         screenOptions={{
           headerMode: 'screen',
-          headerTintColor: 'white',
-          headerStyle: {backgroundColor: 'tomato'},
+          headerTintColor: 'green',
+          headerStyle: {
+            // backgroundColor: 'tomato'
+          },
         }}>
-        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="Home" component={HomeScreen} options={{title: '', navigationBarHidden: false}}/>
         <Stack.Screen name="List" component={ListScreen} options={{title: 'List'}}/>
         <Stack.Screen
           name="Item"

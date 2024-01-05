@@ -3,7 +3,7 @@ const POKEMON1_API = POKEMON_API + "pokemon?limit=30&offset=30"
 const POKEMON2_API = 'https://pokeapi.co/api/v2/ability';
 
 export async function getPokemonList() {
-    const response = await fetch(POKEMON2_API);
+    const response = await fetch(POKEMON1_API);
     const data = await response.json();
 
     return data.results;

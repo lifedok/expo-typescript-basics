@@ -1,15 +1,15 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-export const Button = ({ onPress, text }) => {
+export const Button = ({ onPress, children }) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.8}>
-      <Text style={styles.text}>{text}</Text>
+    <TouchableOpacity style={buttonStyles.container} onPress={onPress} activeOpacity={0.8}>
+      <Text style={buttonStyles.text}>{children}</Text>
     </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({
+const buttonStyles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
