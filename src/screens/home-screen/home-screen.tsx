@@ -1,28 +1,28 @@
-import React, { Component } from "react";
-import { View, Text, ImageBackground, Image } from "react-native";
+import React from "react";
+import { View, ImageBackground } from "react-native";
 import { HomeScreenStyles } from "./home-screen.styles";
-import { DirectionNavigator } from "../components/direction-navigator/direction-navigator";
 import Images from "../../assets/images/images";
+import Pickachu from "../../assets/svg/jsx/pickachu";
 import { Button } from "../../components/simple-components/button/button";
+import { useNavigation } from "@react-navigation/native";
 
-export class HomeScreen extends Component<{}, {}> {
+export const HomeScreen = (props) => {
+  const navigation = useNavigation();
 
-  render() {
-    const {url, name} = this.props;
-    return (
-      <View style={HomeScreenStyles.container}>
-        <ImageBackground source={Images.home} resizeMode={"cover"} style={HomeScreenStyles.image}>
-          <Image resizeMode="contain" source={Images.logo}/>
-          <Image resizeMode="contain" style={{width: 120, height: 120, borderRadius: 12}}
-                 source={{uri: 'https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/1.svg'}}/>
+  return (
+    <View style={HomeScreenStyles.container}>
+      <ImageBackground source={Images.home} resizeMode={"cover"} style={HomeScreenStyles.image}>
+        <Pickachu style={HomeScreenStyles.svg}/>
 
-          <Button>
-            <DirectionNavigator navigationName={'List'} id={name} item={url}>
-              <Text>Switch -></Text>
-            </DirectionNavigator>
-          </Button>
-        </ImageBackground>
-      </View>
-    )
-  }
+        <Button
+          onPress={() => navigation.navigate(
+          'List' as any,
+          {id: props.id, item: props.item} as any)
+        }>
+          Switch ->
+        </Button>
+
+      </ImageBackground>
+    </View>
+  )
 }

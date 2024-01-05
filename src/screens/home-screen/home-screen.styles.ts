@@ -12,6 +12,11 @@ export const HomeScreenStyles = StyleSheet.create({
     width: '100%',
     height: '100%',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    gap: 80
+  },
+  svg: {
+    width: '100%',
+    height: 140,
   }
 });
