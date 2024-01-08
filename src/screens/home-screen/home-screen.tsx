@@ -1,7 +1,7 @@
 import React from "react";
 import { View, ImageBackground } from "react-native";
 import { HomeScreenStyles } from "./home-screen.styles";
-import Images from "../../assets/images/images";
+import { Images } from "../../assets/images/images";
 import Pickachu from "../../assets/svg/jsx/pickachu";
 import { Button } from "../../components/simple-components/button/button";
 import { useNavigation } from "@react-navigation/native";

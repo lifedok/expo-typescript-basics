@@ -23,12 +23,18 @@ export const Navigation = () => {
           name="List"
           component={ListScreen}
           options={{
-            title: 'List',
+            title: 'Pokemons',
+            gestureEnabled: true,
             // headerLeft: () => (<Text/>),
         }}/>
         <Stack.Screen
           name="Item"
-          component={ItemScreen}/>
+          component={ItemScreen}
+          options={{
+            title: 'List',
+            gestureEnabled: true,
+            // headerLeft: () => (<Text/>),
+          }}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

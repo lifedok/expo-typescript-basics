@@ -1,6 +1,14 @@
 const POKEMON_API = 'https://pokeapi.co/api/v2/';
 const POKEMON1_API = POKEMON_API + "pokemon?limit=30&offset=30"
 const POKEMON2_API = 'https://pokeapi.co/api/v2/ability';
+export const FULL_POKEMON_API = "https://gamepress.gg/sites/default/files/aggregatedjson/pokemon-data-full-en-PoGO.json";
+
+export async function getPokemonFullList() {
+  const response = await fetch(FULL_POKEMON_API);
+  const data = await response.json();
+
+  return data;
+}
 
 export async function getPokemonList() {
     const response = await fetch(POKEMON1_API);
