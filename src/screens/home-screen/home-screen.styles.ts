@@ -3,11 +3,20 @@ import { StyleSheet } from "react-native";
 export const HomeScreenStyles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#5c4db5',
     borderBottomLeftRadius: 23,
     borderBottomRightRadius: 23,
+    position: 'relative',
   },
-  text: {
-    color: '#fff'
+  image: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 80
+  },
+  svg: {
+    width: '100%',
+    height: 140,
   }
 });

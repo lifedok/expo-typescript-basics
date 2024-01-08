@@ -1,20 +1,28 @@
-import React, { Component } from "react";
-import { View, Text } from "react-native";
+import React from "react";
+import { View, ImageBackground } from "react-native";
 import { HomeScreenStyles } from "./home-screen.styles";
-import { DirectionNavigator } from "../components/direction-navigator/direction-navigator";
+import Images from "../../assets/images/images";
+import Pickachu from "../../assets/svg/jsx/pickachu";
+import { Button } from "../../components/simple-components/button/button";
+import { useNavigation } from "@react-navigation/native";
 
-export class HomeScreen extends Component<{}, {}> {
+export const HomeScreen = (props) => {
+  const navigation = useNavigation();
 
-  render() {
-    const {url, name} = this.props;
-    return (
-      <View style={HomeScreenStyles.container}>
-        <DirectionNavigator navigationName={'List'} id={name} item={url}>
-          <Text style={HomeScreenStyles.text}>
-            WELCOME
-          </Text>
-        </DirectionNavigator>
-      </View>
-    )
-  }
+  return (
+    <View style={HomeScreenStyles.container}>
+      <ImageBackground source={Images.home} resizeMode={"cover"} style={HomeScreenStyles.image}>
+        <Pickachu style={HomeScreenStyles.svg}/>
+
+        <Button
+          onPress={() => navigation.navigate(
+          'List' as any,
+          {id: props.id, item: props.item} as any)
+        }>
+          Switch ->
+        </Button>
+
+      </ImageBackground>
+    </View>
+  )
 }
