@@ -1,19 +1,13 @@
 import React from 'react';
-import { StyleSheet, StatusBar, View, ScrollView, RefreshControl } from 'react-native';
+import { StyleSheet, StatusBar, View } from 'react-native';
 import Constants from "expo-constants";
 import Storybook from "./.storybook";
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { getAllPokemon, getPokemon } from "./src/services/user-service/user.service";
-import { Navigation } from "./src/screens/navigation";
 import { Provider as MobxProvider } from "mobx-react";
-import { State } from "react-native-gesture-handler";
 import ListStore from "./src/stores/list.store";
 import { TestScreen } from "./src/screens/test-screen/test-screen";
 import { PokemonNavigation } from "./src/screens/version1.0/pokemon-navigation";
-
-// interface IMyAppProps extends AppProps {
-//   networkMetrics: ApolloQueryResult<NetworkMetricsConnection>;
-// }
+import { Navigation } from "./src/screens/navigation";
 
 class App extends React.PureComponent {
   private allStores: any;
@@ -34,7 +28,7 @@ class App extends React.PureComponent {
           <View style={styles.background}>
             <SafeAreaView style={[styles.safeArea]}>
               <Navigation/>
-              <PokemonNavigation/>
+              {/*<PokemonNavigation/>*/}
               {/*<TestScreen/>*/}
             </SafeAreaView>
           </View>
