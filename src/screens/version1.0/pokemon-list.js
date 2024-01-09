@@ -4,7 +4,7 @@ import {
   View,
   FlatList,
   ActivityIndicator,
-  Alert,
+  Alert, Text
 } from "react-native";
 import { Avatar, ListItem, SearchBar } from "react-native-elements";
 
@@ -112,11 +112,18 @@ export default function PokemonList({ navigation }) {
         onChangeText={inputSearchPokemon}
       />
 
+      {
+        keyword !== '' &&
+        <Text style={{paddingTop: 6, paddingLeft: 12, paddingBottom: 6, paddingRight: 12}}>
+          Looking for {keyword}...
+        </Text>
+      }
+
       {!isLoading ? (
         <FlatList
           data={displayPokemons}
           renderItem={renderItem}
-          keyExtractor={(item) => item.nid as any}
+          keyExtractor={(item) => item.nid}
           initialNumToRender={10}
         />
       ) : (
