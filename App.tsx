@@ -33,7 +33,7 @@ class App extends React.PureComponent {
 
           <View style={styles.background}>
             <SafeAreaView style={[styles.safeArea]}>
-              {/*<Navigation/>*/}
+              <Navigation/>
               <PokemonNavigation/>
               {/*<TestScreen/>*/}
             </SafeAreaView>

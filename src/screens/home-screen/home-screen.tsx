@@ -16,10 +16,18 @@ export const HomeScreen = (props) => {
 
         <Button
           onPress={() => navigation.navigate(
-          'List' as any,
+          'PokemonList' as any,
           {id: props.id, item: props.item} as any)
         }>
-          Switch ->
+          Switch to version 1.0 ->
+        </Button>
+
+        <Button
+          onPress={() => navigation.navigate(
+            'List' as any,
+            {id: props.id, item: props.item} as any)
+          }>
+          Switch to version 1.1 ->
         </Button>
 
       </ImageBackground>
