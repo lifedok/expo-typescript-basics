@@ -1,36 +1,10 @@
-import { Dimensions, StyleSheet } from "react-native";
-import {
-  LIST_LEFT_PADDING,
-  LIST_RIGHT_PADDING,
-  PRIMARY_VIEW_LEFT_PADDING,
-  PRIMARY_VIEW_RIGHT_PADDING
-} from "../../../../shared/consts";
-
-function cutLastNumbers(n: number): number {
-  return ((parseInt(String(n * 100))) / 100);
-}
-
-function getListItemWidth(): number {
-  const fullWidth = Dimensions.get('window').width;
-  const width = fullWidth - LIST_LEFT_PADDING - LIST_RIGHT_PADDING - PRIMARY_VIEW_LEFT_PADDING - PRIMARY_VIEW_RIGHT_PADDING;
-  const roundingErrorDimensions = 0.1;
-  const maxWidth = 110;
-
-  const countItemsRow = Math.floor(width / maxWidth);
-  return cutLastNumbers(width / countItemsRow) - roundingErrorDimensions;
-}
-
-const padding = 4;
-const width = getListItemWidth();
-const imageSize = width - padding * 2;
+import { StyleSheet } from "react-native";
 
 export const ListItemStyles = StyleSheet.create({
   wrapper: {
-    width: width,
     padding: 2
   },
   container: {
-    padding: padding,
     borderRadius: 12,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(0, 0, 0, 0.12)',
@@ -52,8 +26,6 @@ export const ListItemStyles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    width: imageSize,
-    height: imageSize,
     marginBottom: 32,
     borderRadius: 12,
   },

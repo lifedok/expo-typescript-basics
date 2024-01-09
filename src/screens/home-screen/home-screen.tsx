@@ -16,10 +16,10 @@ export const HomeScreen = (props) => {
 
         <Button
           onPress={() => navigation.navigate(
-          'List' as any,
-          {id: props.id, item: props.item} as any)
-        }>
-          Switch ->
+            'List' as any,
+            {id: props.id, item: props.item} as any)
+          }>
+          Switch to ->
         </Button>
 
       </ImageBackground>
