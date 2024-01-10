@@ -1,15 +1,16 @@
 import { StyleSheet } from "react-native";
 
-export const SearchBarStyles = StyleSheet.create({
+export const InputStyles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'row',
     height: 56,
+    width: '100%',
 
     fontSize: 28,
     fontWeight: 'normal',
     color: '#5868F9',
-    //
+
     paddingTop: 8,
     paddingBottom: 8,
     paddingLeft: 18,
