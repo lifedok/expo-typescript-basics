@@ -5,7 +5,9 @@ export const SharedStyles = StyleSheet.create({
   viewCenter: {
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1
+    flex: 1,
+    paddingLeft: 12,
+    paddingRight: 12
   },
   contentWrapper: {
     paddingTop: 12,
