@@ -22,7 +22,7 @@ class App extends React.PureComponent {
     return (
       <MobxProvider store={this.allStores}>
         <SafeAreaProvider>
-          <StatusBar backgroundColor="transparent"/>
+          <StatusBar/>
 
           <View style={styles.background}>
             <SafeAreaView style={[styles.safeArea]}>
