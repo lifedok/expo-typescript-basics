@@ -28,6 +28,16 @@ export default ({config}: ConfigContext): ExpoConfig => ({
   web: {
     favicon: "./src/assets/images/favicon.png"
   },
+  "plugins": [
+    [
+      "expo-font",
+      {
+        "fonts": [
+          "./src/assets/fonts/Poppins/Poppins-Regular.ttf"
+        ]
+      }
+    ]
+  ],
   extra: {
     storybookEnabled: process.env.STORYBOOK === '1'
   }

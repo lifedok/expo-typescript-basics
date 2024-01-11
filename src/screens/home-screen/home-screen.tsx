@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ImageBackground } from "react-native";
+import { View, Text, ImageBackground } from "react-native";
 import { HomeScreenStyles } from "./home-screen.styles";
 import Images from "../../assets/images/images";
 import Pickachu from "../../assets/svg/jsx/pickachu";
@@ -13,6 +13,10 @@ export const HomeScreen = (props) => {
     <View style={HomeScreenStyles.container}>
       <ImageBackground source={Images.home} resizeMode={"cover"} style={HomeScreenStyles.image}>
         <Pickachu style={HomeScreenStyles.svg}/>
+
+        <Text style={{fontFamily: 'PoppinsRegular', backgroundColor: '#10ac84', width: 120, height: 120}}>
+          Welcome to
+        </Text>
 
         <Button
           onPress={() => navigation.navigate(

@@ -13,8 +13,8 @@ const buttonStyles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
-    backgroundColor: 'purple',
-    borderRadius: 8,
+    backgroundColor: '#293441',
+    borderRadius: 12,
   },
   text: { color: 'white' },
 });
