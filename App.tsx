@@ -1,3 +1,5 @@
+import '@tamagui/core/reset.css'
+
 import React from 'react';
 import { StyleSheet, StatusBar, View, ActivityIndicator } from 'react-native';
 import Constants from "expo-constants";
@@ -8,6 +10,17 @@ import ListStore from "./src/stores/list.store";
 import { PokemonNavigation } from "./src/screens/version1.0/pokemon-navigation";
 import { Navigation } from "./src/screens/navigation";
 import useCustomFonts from "./src/assets/fonts/use-fonts";
+import { Button } from 'tamagui'
+
+import { TamaguiProvider, createTamagui } from 'tamagui'
+// import { config } from '@tamagui/config/v2'
+//
+// const tamaguiConfig = createTamagui(config);
+//
+// type Conf = typeof tamaguiConfig
+// declare module 'tamagui' {
+//   interface TamaguiCustomConfig extends Conf {}
+// }
 
 class App extends React.PureComponent {
   private allStores: any;
@@ -34,23 +47,23 @@ class App extends React.PureComponent {
 
   render() {
     return (
-      this.state.isFontsLoading ?
-        <View style={{flex: 1}}>
-          <ActivityIndicator animating size={'large'} color={'#5868F9'} style={{marginTop: 20}}/>
-        </View>
-        :
-        <MobxProvider store={this.allStores}>
-          <SafeAreaProvider>
-            <StatusBar/>
+      <MobxProvider store={this.allStores}>
+        <SafeAreaProvider>
+          <StatusBar/>
 
-            <View style={styles.background}>
-              <SafeAreaView style={[styles.safeArea]}>
-                <Navigation/>
-                {/*<PokemonNavigation/>*/}
-              </SafeAreaView>
-            </View>
-          </SafeAreaProvider>
-        </MobxProvider>
+          <View style={styles.background}>
+            {
+              this.state.isFontsLoading ?
+                <ActivityIndicator animating size={'large'} color={'#5868F9'} style={{marginTop: 20}}/>
+                :
+                <SafeAreaView style={[styles.safeArea]}>
+                  <Navigation/>
+                  {/*<PokemonNavigation/>*/}
+                </SafeAreaView>
+            }
+          </View>
+        </SafeAreaProvider>
+      </MobxProvider>
     )
   }
 }

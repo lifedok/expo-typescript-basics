@@ -23,7 +23,7 @@ export const HomeScreen = (props) => {
             'List' as any,
             {id: props.id, item: props.item} as any)
           }>
-          Switch to ->
+          Get Started
         </Button>
 
       </ImageBackground>

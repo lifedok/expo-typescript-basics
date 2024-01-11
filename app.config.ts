@@ -7,7 +7,7 @@ export default ({config}: ConfigContext): ExpoConfig => ({
   version: "1.0.0",
   orientation: "portrait",
   icon: "./src/assets/images/icon.png",
-  userInterfaceStyle: "light",
+  userInterfaceStyle: "automatic",
   splash: {
     image: "./src/assets/images/pickachu-big.png",
     resizeMode: "contain",
