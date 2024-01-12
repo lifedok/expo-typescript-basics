@@ -7,9 +7,6 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../../../firebaseConfig";
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-
 // import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 // import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 // const auth = initializeAuth(app, {
@@ -17,24 +14,15 @@ const auth = getAuth();
 // });
 
 
-interface LoginScreenProps {
-}
+export function LoginScreen() {
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 
-@observer
-export class LoginScreen extends PureComponent<LoginScreenProps> {
-  @observable emailValue = '';
-  @observable passwordValue = '';
-
-
-  constructor(props: any) {
-    super(props);
-    makeObservable(this);
-  }
-
-  handleCreateAccount() {
-
-    console.log('handleCreateAccount', this.emailValue)
-    createUserWithEmailAndPassword(auth, this.emailValue, this.passwordValue)
+  const handleCreateAccount = () => {
+    console.log('handleCreateAccount', email)
+    createUserWithEmailAndPassword(auth, email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
         console.log('user',  user)
@@ -42,9 +30,9 @@ export class LoginScreen extends PureComponent<LoginScreenProps> {
       .catch((error) => alert(error.message))
   }
 
-  handleSignIn() {
+  const handleSignIn = () => {
     console.log('handleSignIn')
-    signInWithEmailAndPassword(auth, this.emailValue, this.passwordValue)
+    signInWithEmailAndPassword(auth, email, password)
       .then(userCredentials => {
         // const user = userCredentials.user;
         console.log('userCredentials',  userCredentials)
@@ -52,18 +40,6 @@ export class LoginScreen extends PureComponent<LoginScreenProps> {
       .catch((error) => alert(error.message))
   }
 
-  @action setEmail(input: string) {
-    const prevInput = this.emailValue;
-    console.log('setEmail', input)
-    this.emailValue = input;
-  }
-
-  @action setPassword(input: string) {
-    console.log('setPassword', input)
-    this.passwordValue = input;
-  }
-
-  render() {
     return (
       <KeyboardAvoidingView
         behavior={'padding'}
@@ -71,15 +47,15 @@ export class LoginScreen extends PureComponent<LoginScreenProps> {
         <View style={LoginScreenStyles.inputContainer}>
           <TextInput
             placeholder={'Email'}
-            value={this.emailValue}
-            onChangeText={(v) => this.setEmail(v)}
+            value={email}
+            onChangeText={(v) => setEmail(v)}
             style={LoginScreenStyles.input}
           />
           <TextInput
             placeholder={'Password'}
             secureTextEntry
-            value={this.passwordValue}
-            onChangeText={(v) => this.setPassword(v)}
+            value={password}
+            onChangeText={(v) => setPassword(v)}
             style={LoginScreenStyles.input}
           />
         </View>
@@ -87,14 +63,14 @@ export class LoginScreen extends PureComponent<LoginScreenProps> {
         <View style={LoginScreenStyles.buttonContainer}>
           <TouchableOpacity
             style={LoginScreenStyles.button}
-            onPress={this.handleSignIn}
+            onPress={handleSignIn}
             activeOpacity={0.8}>
             <Text style={LoginScreenStyles.buttonText}>Login</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={[LoginScreenStyles.button, LoginScreenStyles.buttonOutline]}
-            onPress={this.handleCreateAccount}
+            onPress={handleCreateAccount}
             activeOpacity={0.8}>
             <Text style={[LoginScreenStyles.buttonText, LoginScreenStyles.buttonOutlineText]}>Register</Text>
           </TouchableOpacity>
@@ -102,5 +78,4 @@ export class LoginScreen extends PureComponent<LoginScreenProps> {
         </View>
       </KeyboardAvoidingView>
     )
-  }
 }
