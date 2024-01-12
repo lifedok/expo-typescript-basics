@@ -18,7 +18,7 @@ export const PokemonNavigation = () => {
           gestureEnabled: true,
         }}>
         <PokemonStack.Screen
-          name="Home"
+          name="HomeScreen"
           component={HomeScreen}
           options={{title: '', headerShown: false}}/>
         <PokemonStack.Screen name="PokemonList" component={PokemonList}/>

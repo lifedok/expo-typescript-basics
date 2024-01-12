@@ -10,18 +10,18 @@ export default function StartNavigation() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="HomeScreen"
         component={HomeScreen}
         // options={{headerShown: false}}
       />
       <Stack.Screen
-        name="List"
+        name="ListScreen"
         component={ListScreen}
         options={{
           title: 'List',
           // headerLeft: () => (<Text/>),
         }}/>
-      <Stack.Screen name="Item" component={ItemScreen}/>
+      <Stack.Screen name="ItemScreen" component={ItemScreen}/>
     </Stack.Navigator>
   )
 }

@@ -14,7 +14,7 @@ export function ForgotScreen({navigation}: { navigation: any }) {
         <View style={ForgotScreenStyles.inputContainer}>
           <TouchableOpacity
             style={[LoginScreenStyles.button, LoginScreenStyles.buttonOutline]}
-            onPress={() => navigation.push('LoginScreen')}
+            onPress={() => navigation.navigate('LoginScreen')}
             activeOpacity={0.8}>
             <Text style={[LoginScreenStyles.buttonText, LoginScreenStyles.buttonOutlineText]}>Back to login</Text>
           </TouchableOpacity>

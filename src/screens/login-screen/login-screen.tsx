@@ -12,13 +12,11 @@ export function LoginScreen({navigation}: { navigation: any }) {
 
 
   const handleSignIn = async () => {
-    console.log('handleSignIn');
     setLoading(true);
     await signInWithEmailAndPassword(firebaseAuth, email, password)
       .then(userCredentials => {
-        // const user = userCredentials.user;
         console.log('userCredentials', userCredentials);
-        navigation.navigate("Home" as any);
+        navigation.navigate('HomeScreen');
         setLoading(false);
         alert(`Login successful! \n Welcome ${firebaseAuth.currentUser?.email}`);
       })
@@ -33,14 +31,20 @@ export function LoginScreen({navigation}: { navigation: any }) {
         <TextInput
           placeholder={'Enter your email'}
           value={email}
-          onChangeText={(v) => setEmail(v)}
+          onChangeText={(v) => {
+            let value = v.toLowerCase();
+            setEmail(value)
+          }}
           style={LoginScreenStyles.input}
         />
         <TextInput
           placeholder={'Enter your password'}
-          secureTextEntry
+          secureTextEntry={false}
           value={password}
-          onChangeText={(v) => setPassword(v)}
+          onChangeText={(v) => {
+            let value = v.toLowerCase();
+            setPassword(value)
+          }}
           style={LoginScreenStyles.input}
         />
       </View>
@@ -48,7 +52,7 @@ export function LoginScreen({navigation}: { navigation: any }) {
       <View>
         <TouchableOpacity
           style={[LoginScreenStyles.button, LoginScreenStyles.buttonOutline]}
-          onPress={() => navigation.push('ForgotScreen')}
+          onPress={() => navigation.navigate('ForgotScreen')}
           activeOpacity={0.8}>
           <Text style={[LoginScreenStyles.buttonText, LoginScreenStyles.buttonOutlineText]}>Forgot Password?</Text>
         </TouchableOpacity>
@@ -68,7 +72,7 @@ export function LoginScreen({navigation}: { navigation: any }) {
           <Text>New here?</Text>
           <TouchableOpacity
             style={[LoginScreenStyles.button, LoginScreenStyles.buttonOutline]}
-            onPress={() => navigation.push('SignupScreen')}
+            onPress={() => navigation.navigate('SignupScreen')}
             // onPress={handleCreateAccount}
             activeOpacity={0.8}>
             <Text style={[LoginScreenStyles.buttonText, LoginScreenStyles.buttonOutlineText]}>Sign up</Text>

@@ -1,7 +1,7 @@
 import React, {useEffect } from "react";
 import { View, Text, KeyboardAvoidingView, TextInput, TouchableOpacity } from "react-native";
 import { SignupScreenStyles } from "./signup-screen.styles";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { firebaseAuth } from "../../../firebase.config";
 
 
@@ -14,7 +14,7 @@ export function SignupScreen({navigation}: { navigation: any }) {
   useEffect(() => {
     const unsubscribe = firebaseAuth.onAuthStateChanged(user => {
       if (user) {
-        navigation.navigate("Home" as any)
+        navigation.navigate('HomeScreen')
       }
     });
 
@@ -48,14 +48,20 @@ export function SignupScreen({navigation}: { navigation: any }) {
         <TextInput
           placeholder={'Enter your email'}
           value={email}
-          onChangeText={(v) => setEmail(v)}
+          onChangeText={(v) => {
+            let value = v.toLowerCase();
+            setEmail(value)
+          }}
           style={SignupScreenStyles.input}
         />
         <TextInput
           placeholder={'Enter your password'}
           secureTextEntry
           value={password}
-          onChangeText={(v) => setPassword(v)}
+          onChangeText={(v) => {
+            let value = v.toLowerCase();
+            setPassword(value)
+          }}
           style={SignupScreenStyles.input}
         />
       </View>
@@ -71,7 +77,7 @@ export function SignupScreen({navigation}: { navigation: any }) {
         <Text>Already have an account?</Text>
         <TouchableOpacity
           style={[SignupScreenStyles.button, SignupScreenStyles.buttonOutline]}
-          onPress={() => navigation.push('LoginScreen')}
+          onPress={() => navigation.navigate('LoginScreen')}
           activeOpacity={0.8}>
           <Text style={[SignupScreenStyles.buttonText, SignupScreenStyles.buttonOutlineText]}>Login</Text>
         </TouchableOpacity>
