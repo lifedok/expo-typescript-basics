@@ -14,10 +14,6 @@ export const HomeScreen = (props) => {
       <ImageBackground source={Images.home} resizeMode={"cover"} style={HomeScreenStyles.image}>
         <Pickachu style={HomeScreenStyles.svg}/>
 
-        <Text style={{fontFamily: 'PoppinsRegular', backgroundColor: '#10ac84', width: 120, height: 120}}>
-          Welcome to
-        </Text>
-
         <Button
           onPress={() => navigation.navigate(
             'List' as any,
