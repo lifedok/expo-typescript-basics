@@ -32,6 +32,7 @@ export class List extends Component<ListProps, {}> {
     this.setWidth(width);
   }
 
+
   render() {
     return (
       <View style={ListStyles.container} onLayout={(event) => { this.findDimensions(event.nativeEvent.layout)}}>
