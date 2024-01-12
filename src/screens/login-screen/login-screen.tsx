@@ -1,87 +1,80 @@
-import React, { PureComponent, useEffect } from "react";
+import React from "react";
 import { View, Text, KeyboardAvoidingView, TextInput, TouchableOpacity } from "react-native";
 import { LoginScreenStyles } from "./login-screen.styles";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "../../../firebaseConfig";
-import { useNavigation } from "@react-navigation/core";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { firebaseAuth } from "../../../firebase.config";
 
 
-export function LoginScreen() {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const navigation = useNavigation()
+export function LoginScreen({navigation}: { navigation: any }) {
+  const [email, setEmail] = React.useState<string>('');
+  const [password, setPassword] = React.useState<any>('');
+  const [isLoading, setLoading] = React.useState<boolean>(false);
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if(user) {
-        navigation.navigate("Home" as any)
-      }
-    });
-
-    return unsubscribe;
-  }, [])
-
-  const handleCreateAccount = () => {
-    console.log('handleCreateAccount', email)
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('user',  user)
-      })
-      .catch((error) => alert(error.message))
-  }
-
-  const handleSignIn = () => {
-    console.log('handleSignIn')
-    signInWithEmailAndPassword(auth, email, password)
+  const handleSignIn = async () => {
+    console.log('handleSignIn');
+    setLoading(true);
+    await signInWithEmailAndPassword(firebaseAuth, email, password)
       .then(userCredentials => {
         // const user = userCredentials.user;
-        console.log('userCredentials',  userCredentials);
-        navigation.navigate("Home" as any)
+        console.log('userCredentials', userCredentials);
+        navigation.navigate("Home" as any);
+        setLoading(false);
+        alert(`Login successful! \n Welcome ${firebaseAuth.currentUser?.email}`);
       })
       .catch((error) => alert(error.message))
   }
 
-    return (
-      <KeyboardAvoidingView
-        behavior={'padding'}
-        style={LoginScreenStyles.wrapper}>
-        <View style={LoginScreenStyles.inputContainer}>
-          <TextInput
-            placeholder={'Email'}
-            value={email}
-            onChangeText={(v) => setEmail(v)}
-            style={LoginScreenStyles.input}
-          />
-          <TextInput
-            placeholder={'Password'}
-            secureTextEntry
-            value={password}
-            onChangeText={(v) => setPassword(v)}
-            style={LoginScreenStyles.input}
-          />
-        </View>
+  return (
+    <KeyboardAvoidingView
+      behavior={'padding'}
+      style={LoginScreenStyles.wrapper}>
+      <View style={LoginScreenStyles.inputContainer}>
+        <TextInput
+          placeholder={'Enter your email'}
+          value={email}
+          onChangeText={(v) => setEmail(v)}
+          style={LoginScreenStyles.input}
+        />
+        <TextInput
+          placeholder={'Enter your password'}
+          secureTextEntry
+          value={password}
+          onChangeText={(v) => setPassword(v)}
+          style={LoginScreenStyles.input}
+        />
+      </View>
+
+      <View>
+        <TouchableOpacity
+          style={[LoginScreenStyles.button, LoginScreenStyles.buttonOutline]}
+          onPress={() => navigation.push('ForgotScreen')}
+          activeOpacity={0.8}>
+          <Text style={[LoginScreenStyles.buttonText, LoginScreenStyles.buttonOutlineText]}>Forgot Password?</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={LoginScreenStyles.buttonContainer}>
+        <TouchableOpacity
+          style={LoginScreenStyles.button}
+          onPress={handleSignIn}
+          activeOpacity={0.8}>
+          <Text style={LoginScreenStyles.buttonText}>
+            {isLoading ? 'Logging' : 'Login'}
+          </Text>
+        </TouchableOpacity>
 
         <View style={LoginScreenStyles.buttonContainer}>
-          <TouchableOpacity
-            style={LoginScreenStyles.button}
-            onPress={handleSignIn}
-            activeOpacity={0.8}>
-            <Text style={LoginScreenStyles.buttonText}>Login</Text>
-          </TouchableOpacity>
-
+          <Text>New here?</Text>
           <TouchableOpacity
             style={[LoginScreenStyles.button, LoginScreenStyles.buttonOutline]}
-            onPress={handleCreateAccount}
+            onPress={() => navigation.push('SignupScreen')}
+            // onPress={handleCreateAccount}
             activeOpacity={0.8}>
-            <Text style={[LoginScreenStyles.buttonText, LoginScreenStyles.buttonOutlineText]}>Register</Text>
+            <Text style={[LoginScreenStyles.buttonText, LoginScreenStyles.buttonOutlineText]}>Sign up</Text>
           </TouchableOpacity>
-
         </View>
-      </KeyboardAvoidingView>
-    )
+      </View>
+    </KeyboardAvoidingView>
+  )
 }
