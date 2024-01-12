@@ -1,24 +1,29 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, useEffect } from "react";
 import { View, Text, KeyboardAvoidingView, TextInput, TouchableOpacity } from "react-native";
 import { LoginScreenStyles } from "./login-screen.styles";
-import { action, makeObservable, observable } from "mobx";
-import { observer } from "mobx-react";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../../../firebaseConfig";
-
-// import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
-// import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
-// const auth = initializeAuth(app, {
-//   persistence: getReactNativePersistence(ReactNativeAsyncStorage)
-// });
+import { useNavigation } from "@react-navigation/core";
 
 
 export function LoginScreen() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const navigation = useNavigation()
+
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if(user) {
+        navigation.navigate("Home" as any)
+      }
+    });
+
+    return unsubscribe;
+  }, [])
 
   const handleCreateAccount = () => {
     console.log('handleCreateAccount', email)
@@ -35,7 +40,8 @@ export function LoginScreen() {
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredentials => {
         // const user = userCredentials.user;
-        console.log('userCredentials',  userCredentials)
+        console.log('userCredentials',  userCredentials);
+        navigation.navigate("Home" as any)
       })
       .catch((error) => alert(error.message))
   }
