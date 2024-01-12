@@ -10,7 +10,8 @@ export function HomeScreen({navigation, props}: { navigation: any, props: any })
 
   const handleSignOut = () => {
     firebaseAuth.signOut().then(() => {
-      navigation.navigate('LoginScreen')
+      // navigation.navigate('LoginScreen')
+      console.log('signOut')
     }).catch((error) => alert(error.message))
   }
 
@@ -27,10 +28,7 @@ export function HomeScreen({navigation, props}: { navigation: any, props: any })
         </Button>
 
         <Button
-          onPress={() => navigation.navigate(
-            'ListScreen' as any,
-            {id: props.id, item: props.item} as any)
-          }>
+          onPress={() => navigation.navigate('ListScreen')}>
           Switch to ->
         </Button>
 

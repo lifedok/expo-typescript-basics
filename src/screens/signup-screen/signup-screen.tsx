@@ -11,15 +11,15 @@ export function SignupScreen({navigation}: { navigation: any }) {
   const [username, setUsername] = React.useState<string>('');
   const [isLoading, setLoading] = React.useState<boolean>(false);
 
-  useEffect(() => {
-    const unsubscribe = firebaseAuth.onAuthStateChanged(user => {
-      if (user) {
-        navigation.navigate('HomeScreen')
-      }
-    });
-
-    return unsubscribe;
-  }, [])
+  // useEffect(() => {
+  //   const unsubscribe = firebaseAuth.onAuthStateChanged(user => {
+  //     if (user) {
+  //       // navigation.navigate('HomeScreen')
+  //     }
+  //   });
+  //
+  //   return unsubscribe;
+  // }, [])
 
   const handleCreateAccount = async () => {
     setLoading(true);
@@ -71,7 +71,9 @@ export function SignupScreen({navigation}: { navigation: any }) {
           style={SignupScreenStyles.button}
           onPress={handleCreateAccount}
           activeOpacity={0.8}>
-          <Text style={SignupScreenStyles.buttonText}>Create account</Text>
+          <Text style={SignupScreenStyles.buttonText}>
+            {isLoading ? 'Creating account' : 'Create account'}
+          </Text>
         </TouchableOpacity>
 
         <Text>Already have an account?</Text>

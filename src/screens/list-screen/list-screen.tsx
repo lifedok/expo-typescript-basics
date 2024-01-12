@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { View, Text, FlatList, Alert } from "react-native";
 import { getPokemonList } from "../../services/user-service/user.service";
 import { LoaderWithInfo } from "../../components/composite-components/loader-with-info/loader-with-info";
@@ -59,6 +59,9 @@ export class ListScreen extends React.PureComponent {
         <Text style={{fontSize: 22, color: '#5868F9', fontWeight: '600'}}>
           {item.name}
         </Text>
+        {/*<DirectionNavigator navigationName={'ItemScreen'} id={name} item={url}>*/}
+        {/*  <Text>{item.name}</Text>*/}
+        {/*</DirectionNavigator>*/}
       </View>
     )
   }

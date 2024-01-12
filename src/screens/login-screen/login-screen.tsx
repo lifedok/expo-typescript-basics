@@ -16,7 +16,7 @@ export function LoginScreen({navigation}: { navigation: any }) {
     await signInWithEmailAndPassword(firebaseAuth, email, password)
       .then(userCredentials => {
         console.log('userCredentials', userCredentials);
-        navigation.navigate('HomeScreen');
+        // navigation.navigate('HomeScreen');
         setLoading(false);
         alert(`Login successful! \n Welcome ${firebaseAuth.currentUser?.email}`);
       })

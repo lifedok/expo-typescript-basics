@@ -40,7 +40,7 @@ export class ListItem extends React.Component<ListItemProps, {}> {
     const imageSize = widthItem - padding * 2;
     return (
       <View style={[ListItemStyles.wrapper, {width: widthItem}]}>
-        <DirectionNavigator navigationName={'Item'} id={name} item={url}>
+        <DirectionNavigator navigationName={'ItemScreen'} id={name} item={url}>
           <View style={[ListItemStyles.container, {
             backgroundColor: this.genHexCode, cursor: 'pointer', padding: padding,
           }]}>
