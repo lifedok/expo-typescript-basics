@@ -3,7 +3,19 @@ import { View, Text, KeyboardAvoidingView, TextInput, TouchableOpacity } from "r
 import { LoginScreenStyles } from "./login-screen.styles";
 import { action, makeObservable, observable } from "mobx";
 import { observer } from "mobx-react";
-import { auth } from "../../../firebase";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../../../firebaseConfig";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+
+// import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+// import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+// const auth = initializeAuth(app, {
+//   persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+// });
+
 
 interface LoginScreenProps {
 }
@@ -19,12 +31,23 @@ export class LoginScreen extends PureComponent<LoginScreenProps> {
     makeObservable(this);
   }
 
-  handleSignUp() {
-    auth
-      .createUserWithEmailAndPassword(this.emailValue, this.passwordValue)
+  handleCreateAccount() {
+
+    console.log('handleCreateAccount', this.emailValue)
+    createUserWithEmailAndPassword(auth, this.emailValue, this.passwordValue)
       .then(userCredentials => {
         const user = userCredentials.user;
-        // console.log('email',  user.emailValue)
+        console.log('user',  user)
+      })
+      .catch((error) => alert(error.message))
+  }
+
+  handleSignIn() {
+    console.log('handleSignIn')
+    signInWithEmailAndPassword(auth, this.emailValue, this.passwordValue)
+      .then(userCredentials => {
+        // const user = userCredentials.user;
+        console.log('userCredentials',  userCredentials)
       })
       .catch((error) => alert(error.message))
   }
@@ -64,14 +87,14 @@ export class LoginScreen extends PureComponent<LoginScreenProps> {
         <View style={LoginScreenStyles.buttonContainer}>
           <TouchableOpacity
             style={LoginScreenStyles.button}
-            onPress={() => console.log('Login')}
+            onPress={this.handleSignIn}
             activeOpacity={0.8}>
             <Text style={LoginScreenStyles.buttonText}>Login</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={[LoginScreenStyles.button, LoginScreenStyles.buttonOutline]}
-            onPress={this.handleSignUp}
+            onPress={this.handleCreateAccount}
             activeOpacity={0.8}>
             <Text style={[LoginScreenStyles.buttonText, LoginScreenStyles.buttonOutlineText]}>Register</Text>
           </TouchableOpacity>
