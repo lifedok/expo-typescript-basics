@@ -51,6 +51,7 @@ export class List extends Component<ListProps, {}> {
         onLayout={(event) => this.findDimensions(event.nativeEvent.layout)}
         renderItem={(item) => this.renderItem(item)}
         keyExtractor={(item, index) => index.toString()}
+        ListFooterComponent={<View><Text style={{padding: 12}}/></View>}
         initialNumToRender={10}
         ListEmptyComponent={() => (
           <View style={{alignItems: 'center', justifyContent: 'center', paddingTop: 32, paddingBottom: 32, flex: 1}}>
