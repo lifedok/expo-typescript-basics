@@ -10,7 +10,7 @@ import { IS_RUNNING_IN_EXPO_GO } from "../../../shared/utils";
 import Pickachu from "../../../assets/svg/pickachu.svg";
 import { SharedStyles } from "../../../shared/styles";
 import { ProgressList } from "./progress-list/progress-list";
-import { ListScreenMockData } from "./list-screen-mock.data";
+import { HomeScreenMockData } from "./home-screen-mock.data";
 
 @observer
 export class ItemScreen extends Component<{ props }, {}> {
@@ -72,7 +72,7 @@ export class ItemScreen extends Component<{ props }, {}> {
           }
         </PreviewBlock>
 
-        <ProgressList list={ListScreenMockData}/>
+        <ProgressList list={HomeScreenMockData}/>
       </View>
     )
   }

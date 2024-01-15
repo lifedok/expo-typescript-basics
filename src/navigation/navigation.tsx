@@ -22,7 +22,7 @@ export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={!user ? 'StartScreen' : 'ListScreen'}
+        initialRouteName={!user ? 'StartScreen' : 'HomeScreen'}
         screenOptions={{
           headerMode: 'screen',
           headerTintColor: 'black'
