@@ -1,13 +1,8 @@
 import { StyleSheet } from "react-native";
 
-export const InitSharedStyles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+export const AuthFormStyles = StyleSheet.create({
   content: {
-    width: '75%',
+    width: '100%',
     alignItems: 'center'
   },
   text: {
@@ -39,22 +34,5 @@ export const InitSharedStyles = StyleSheet.create({
     color: '#0782f9',
     paddingHorizontal: 6,
     paddingVertical: 4,
-  },
-  input: {
-    backgroundColor: '#fff',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 8,
-  },
-  buttonContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 40,
-  },
-  footerContent: {
-    marginTop: 16,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    gap: 6
   }
 });

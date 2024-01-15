@@ -41,7 +41,7 @@ export function ForgotScreen({navigation}: { navigation: any }) {
       enabled>
 
       <View style={InitSharedStyles.content}>
-        <Text style={{fontSize: 24, fontWeight: '700', color: '#002856', paddingBottom: 42}}>
+        <Text style={InitSharedStyles.text}>
           Reset you password
         </Text>
 

@@ -4,17 +4,15 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { firebaseAuth } from "../../../../firebase.config";
 import Constants from 'expo-constants'
 import { useHeaderHeight } from '@react-navigation/elements'
-import { Input } from "../../../components/simple-components/input/input";
 import { Button } from "../../../components/simple-components/button/button";
 import { InitSharedStyles } from "../init-shared.styles";
+import { AuthForm } from "../../components/auth-form/auth-form";
 
 export function LoginScreen({navigation}: { navigation: any }) {
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<any>('');
   const [isLoading, setLoading] = React.useState<boolean>(false);
-  const [isSecureText, setSecureText] = React.useState<boolean>(true);
   const [hasErrors, setErrors] = React.useState<boolean>(true);
-
 
   const handleSignIn = async () => {
     setLoading(true);
@@ -30,16 +28,6 @@ export function LoginScreen({navigation}: { navigation: any }) {
       })
   }
 
-  {/*<View style={{backgroundColor: 'white', padding: 12}}>*/
-  }
-  {/*  <Text>Email: {firebaseAuth.currentUser?.email}</Text>*/
-  }
-  {/*</View>*/
-  }
-
-  {/*onPress={() => navigation.navigate((user ? 'ContentNavigation' : 'InitNavigation') as any, { screen: user ? 'ContentNavigation' : 'InitNavigation' } as any)}*/
-  }
-
   const height = useHeaderHeight()
   return (
     <KeyboardAvoidingView
@@ -49,39 +37,19 @@ export function LoginScreen({navigation}: { navigation: any }) {
       enabled>
 
       <View style={InitSharedStyles.content}>
-        <Text style={{fontSize: 24, fontWeight: '700', color: '#002856', paddingBottom: 42}}>
-          Let's get you signed in!
-        </Text>
-
-        <View style={InitSharedStyles.inputContainer}>
-          <Input
-            placeholder={'Enter your email'}
-            value={email}
-            onChangeText={(v) => {
-              let value = v.toLowerCase();
-              setEmail(value)
-            }}
-          />
-
-          <View style={InitSharedStyles.inputSecure}>
-            <Input
-              placeholder={'Enter your password'}
-              secureTextEntry={isSecureText}
-              value={password}
-              onChangeText={(v) => {
-                let value = v.toLowerCase();
-                setPassword(value)
-              }}
-            />
-
-            <View style={InitSharedStyles.inputLeftSide}>
-              <Text style={InitSharedStyles.textSecure}
-                    onPress={() => setSecureText(!isSecureText)}>
-                {isSecureText ? 'off' : 'on'}
-              </Text>
-            </View>
-          </View>
-        </View>
+        <AuthForm
+          welcomeText={'Let\'s get you signed in!'}
+          valueEmail={email}
+          onChangeEmailText={(v) => {
+            let value = v.toLowerCase();
+            setEmail(value)
+          }}
+          valuePassword={password}
+          onChangePasswordText={(v) => {
+            let value = v.toLowerCase();
+            setPassword(value)
+          }}
+        />
 
         <View style={{alignItems: 'flex-end', paddingTop: 8, width: '100%'}}>
           <Button
