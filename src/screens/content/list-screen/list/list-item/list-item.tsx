@@ -2,11 +2,11 @@ import * as React from "react";
 import { View, Image, Text } from "react-native";
 import { ListItemProps } from "./list-item.interface";
 import { ListItemStyles } from "./list-item.styles";
-import { DirectionNavigator } from "../../../components/direction-navigator/direction-navigator";
+import { DirectionNavigator } from "../../../../components/direction-navigator/direction-navigator";
 import {
   PRIMARY_VIEW_LEFT_PADDING,
   PRIMARY_VIEW_RIGHT_PADDING
-} from "../../../../shared/consts";
+} from "../../../../../shared/consts";
 
 export class ListItem extends React.Component<ListItemProps, {}> {
 
@@ -40,7 +40,7 @@ export class ListItem extends React.Component<ListItemProps, {}> {
     const imageSize = widthItem - padding * 2;
     return (
       <View style={[ListItemStyles.wrapper, {width: widthItem}]}>
-        <DirectionNavigator navigationName={'Item'} id={name} item={url}>
+        <DirectionNavigator navigationName={'ItemScreen'} id={name} item={url}>
           <View style={[ListItemStyles.container, {
             backgroundColor: this.genHexCode, cursor: 'pointer', padding: padding,
           }]}>

@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { action, makeObservable, observable } from "mobx";
 import { View, Alert, ScrollView, RefreshControl, Image } from "react-native";
 import { observer } from "mobx-react";
-import { getPokemonList } from "../../services/user-service/user.service";
+import { getPokemonList } from "../../../services/user-service/user.service";
 import { List } from "./list/list";
 import { ListItemProps } from "./list/list-item/list-item.interface";
 import { ListScreen2Styles } from "./list-screen2.styles";
-import { PreviewBlock } from "../../components/composite-components/preview-block/preview-block";
-import Pickachu from "../../assets/svg/pickachu.svg";
-import { IS_RUNNING_IN_EXPO_GO } from "../../shared/utils";
-import { SharedStyles } from "../../shared/styles";
-import { LoaderWithInfo } from "../../components/composite-components/loader-with-info/loader-with-info";
+import { PreviewBlock } from "../../../components/composite-components/preview-block/preview-block";
+import Pickachu from "../../../assets/svg/pickachu.svg";
+import { IS_RUNNING_IN_EXPO_GO } from "../../../shared/utils";
+import { SharedStyles } from "../../../shared/styles";
+import { LoaderWithInfo } from "../../../components/composite-components/loader-with-info/loader-with-info";
 
 @observer
 export class ListScreen2 extends React.PureComponent {

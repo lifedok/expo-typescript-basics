@@ -3,8 +3,8 @@ import { View } from "react-native";
 import { ProgressListStyles } from "./progress-list.styles";
 import {
   ProgressWithInfoProps
-} from "../../../components/composite-components/progress-with-info/progress-with-info.interface";
-import { ProgressWithInfo } from "../../../components/composite-components/progress-with-info/progress-with-info";
+} from "../../../../components/composite-components/progress-with-info/progress-with-info.interface";
+import { ProgressWithInfo } from "../../../../components/composite-components/progress-with-info/progress-with-info";
 
 interface ProgressListProps {
   list: ProgressWithInfoProps[]

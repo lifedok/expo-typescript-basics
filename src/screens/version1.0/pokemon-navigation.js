@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import PokemonList from "./pokemon-list";
 import PokemonDetail from "./pokemon-detail";
-import {HomeScreen} from "../home-screen/home-screen";
+import {HomeScreen} from "../init/home-screen/home-screen";
 
 const PokemonStack = createNativeStackNavigator();
 
@@ -18,7 +18,7 @@ export const PokemonNavigation = () => {
           gestureEnabled: true,
         }}>
         <PokemonStack.Screen
-          name="Home"
+          name="HomeScreen"
           component={HomeScreen}
           options={{title: '', headerShown: false}}/>
         <PokemonStack.Screen name="PokemonList" component={PokemonList}/>

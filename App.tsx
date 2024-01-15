@@ -6,7 +6,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Provider as MobxProvider } from "mobx-react";
 import ListStore from "./src/stores/list.store";
 import { PokemonNavigation } from "./src/screens/version1.0/pokemon-navigation";
-import { Navigation } from "./src/screens/navigation";
+import Navigation from "./src/navigation/navigation";
 
 class App extends React.PureComponent {
   private allStores: any;
