@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const LoginScreenStyles = StyleSheet.create({
+export const InitSharedStyles = StyleSheet.create({
   wrapper: {
     flex: 1,
     alignItems: 'center',

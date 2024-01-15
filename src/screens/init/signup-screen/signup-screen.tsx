@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
-import { View, Text, KeyboardAvoidingView, TextInput, TouchableOpacity } from "react-native";
-import { SignupScreenStyles } from "./signup-screen.styles";
+import React from "react";
+import { View, Text, KeyboardAvoidingView } from "react-native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { firebaseAuth } from "../../../../firebase.config";
 import { Input } from "../../../components/simple-components/input/input";
-import { LoginScreenStyles } from "../login-screen/login-screen.styles";
 import Constants from "expo-constants";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { Button } from "../../../components/simple-components/button/button";
+import { InitSharedStyles } from "../init-shared.styles";
 
 
 export function SignupScreen({navigation}: { navigation: any }) {
@@ -39,7 +38,7 @@ export function SignupScreen({navigation}: { navigation: any }) {
     <KeyboardAvoidingView
       behavior={'padding'}
       keyboardVerticalOffset={height + Constants.statusBarHeight}
-      style={LoginScreenStyles.wrapper}
+      style={InitSharedStyles.wrapper}
       enabled>
 
       <View>
@@ -47,7 +46,7 @@ export function SignupScreen({navigation}: { navigation: any }) {
           Let's get you registered!
         </Text>
 
-        <View style={LoginScreenStyles.inputContainer}>
+        <View style={InitSharedStyles.inputContainer}>
           <Input
             placeholder={'Enter your email'}
             value={email}
@@ -57,7 +56,7 @@ export function SignupScreen({navigation}: { navigation: any }) {
             }}
           />
 
-          <View style={LoginScreenStyles.inputSecure}>
+          <View style={InitSharedStyles.inputSecure}>
             <Input
               placeholder={'Enter your password'}
               secureTextEntry={isSecureText}
@@ -68,8 +67,8 @@ export function SignupScreen({navigation}: { navigation: any }) {
               }}
             />
 
-            <View style={LoginScreenStyles.inputLeftSide}>
-              <Text style={LoginScreenStyles.textSecure}
+            <View style={InitSharedStyles.inputLeftSide}>
+              <Text style={InitSharedStyles.textSecure}
                     onPress={() => setSecureText(!isSecureText)}>
                 {isSecureText ? 'off' : 'on'}
               </Text>
@@ -78,7 +77,7 @@ export function SignupScreen({navigation}: { navigation: any }) {
         </View>
       </View>
 
-      <View style={LoginScreenStyles.buttonContainer}>
+      <View style={InitSharedStyles.buttonContainer}>
         <Button
           onPress={handleCreateAccount}
           isFill
@@ -87,7 +86,7 @@ export function SignupScreen({navigation}: { navigation: any }) {
           {hasErrors || !isLoading ? 'Create account' : 'Creating account'}
         </Button>
 
-        <View style={LoginScreenStyles.footerContent}>
+        <View style={InitSharedStyles.footerContent}>
           <Text>Already have an account?</Text>
           <Button
             type={'link'}

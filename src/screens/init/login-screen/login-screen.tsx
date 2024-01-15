@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, KeyboardAvoidingView } from "react-native";
-import { LoginScreenStyles } from "./login-screen.styles";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { firebaseAuth } from "../../../../firebase.config";
 import Constants from 'expo-constants'
 import { useHeaderHeight } from '@react-navigation/elements'
 import { Input } from "../../../components/simple-components/input/input";
 import { Button } from "../../../components/simple-components/button/button";
+import { InitSharedStyles } from "../init-shared.styles";
 
 export function LoginScreen({navigation}: { navigation: any }) {
   const [email, setEmail] = React.useState<string>('');
@@ -45,15 +45,15 @@ export function LoginScreen({navigation}: { navigation: any }) {
     <KeyboardAvoidingView
       behavior={'padding'}
       keyboardVerticalOffset={height + Constants.statusBarHeight}
-      style={LoginScreenStyles.wrapper}
+      style={InitSharedStyles.wrapper}
       enabled>
 
-      <View style={LoginScreenStyles.content}>
+      <View style={InitSharedStyles.content}>
         <Text style={{fontSize: 24, fontWeight: '700', color: '#002856', paddingBottom: 42}}>
           Let's get you signed in!
         </Text>
 
-        <View style={LoginScreenStyles.inputContainer}>
+        <View style={InitSharedStyles.inputContainer}>
           <Input
             placeholder={'Enter your email'}
             value={email}
@@ -63,7 +63,7 @@ export function LoginScreen({navigation}: { navigation: any }) {
             }}
           />
 
-          <View style={LoginScreenStyles.inputSecure}>
+          <View style={InitSharedStyles.inputSecure}>
             <Input
               placeholder={'Enter your password'}
               secureTextEntry={isSecureText}
@@ -74,8 +74,8 @@ export function LoginScreen({navigation}: { navigation: any }) {
               }}
             />
 
-            <View style={LoginScreenStyles.inputLeftSide}>
-              <Text style={LoginScreenStyles.textSecure}
+            <View style={InitSharedStyles.inputLeftSide}>
+              <Text style={InitSharedStyles.textSecure}
                     onPress={() => setSecureText(!isSecureText)}>
                 {isSecureText ? 'off' : 'on'}
               </Text>
@@ -90,7 +90,7 @@ export function LoginScreen({navigation}: { navigation: any }) {
           >Forgot Password?</Button>
         </View>
 
-        <View style={LoginScreenStyles.buttonContainer}>
+        <View style={InitSharedStyles.buttonContainer}>
           <Button
             onPress={handleSignIn}
             isFill
@@ -99,7 +99,7 @@ export function LoginScreen({navigation}: { navigation: any }) {
             {hasErrors || !isLoading ? 'Login' : 'Logging'}
           </Button>
 
-          <View style={LoginScreenStyles.footerContent}>
+          <View style={InitSharedStyles.footerContent}>
             <Text>New here?</Text>
             <Button
               type={'link'}
