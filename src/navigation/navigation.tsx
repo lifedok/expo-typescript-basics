@@ -3,8 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import {onAuthStateChanged} from 'firebase/auth'
 import { firebaseAuth } from "../../firebase.config";
-import StartNavigation from "./start-navigation";
+import ContentNavigation from "./content-navigation";
 import InitNavigation from "./init-navigation";
+import { StartScreen } from "../screens/init/start-screen/start-screen";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,23 +22,23 @@ export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={user ? 'HomeScreen' : 'LoginScreen'}
+        initialRouteName={!user ? 'StartScreen' : 'ListScreen'}
         screenOptions={{
           headerMode: 'screen',
           headerTintColor: 'black'
         }}>
 
         {
-          user ?
+          !user ?
             <Stack.Screen
-              name={'StartNavigation' as any}
-              component={StartNavigation}
+              name={'InitNavigation' as any}
+              component={InitNavigation}
               options={{headerShown: false}}
             />
             :
             <Stack.Screen
-              name={'InitNavigation' as any}
-              component={InitNavigation}
+              name={'ContentNavigation' as any}
+              component={ContentNavigation}
               options={{headerShown: false}}
             />
         }

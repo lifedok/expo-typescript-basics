@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const HomeScreenStyles = StyleSheet.create({
+export const StartScreenStyles = StyleSheet.create({
   container: {
     flexGrow: 1,
     borderBottomLeftRadius: 23,
