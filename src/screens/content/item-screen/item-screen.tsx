@@ -58,6 +58,7 @@ export class ItemScreen extends Component<{ props }, {}> {
 
   render() {
     const {route: {params: {id, item}}} = this.props;
+    console.log('item', item)
     return (
       <View style={[SharedStyles.contentWrapper, ItemScreenStyles.container]}>
         <PreviewBlock info={id}>
@@ -66,7 +67,7 @@ export class ItemScreen extends Component<{ props }, {}> {
               <Pickachu width="100%" height="120"/>
               :
               <Image
-                source={{uri: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS5krfWpMHUZTJd2v6Bihpi9fEYrTh1jDxqqiOUh8ug-b_8L3PL'}}
+                source={{uri: item}}
                 resizeMode="contain"
                 style={{width: 120, height: 120, borderRadius: 12}}/>
           }

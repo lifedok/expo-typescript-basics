@@ -13,8 +13,6 @@ export const SharedStyles = StyleSheet.create({
     flex: 1,
     paddingTop: 12,
     paddingBottom: 6,
-    paddingLeft: PRIMARY_VIEW_LEFT_PADDING,
-    paddingRight: PRIMARY_VIEW_RIGHT_PADDING,
 
     shadowColor: "#000",
     shadowOffset: {

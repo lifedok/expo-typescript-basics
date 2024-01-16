@@ -2,9 +2,11 @@ import { StyleSheet } from "react-native";
 
 export const ListItemStyles = StyleSheet.create({
   wrapper: {
-    padding: 2
+    padding: 2,
+
   },
   container: {
+    backgroundColor: '#fff',
     borderRadius: 12,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(0, 0, 0, 0.12)',
