@@ -28,5 +28,6 @@ export const InputDefault = {};
 export const InputSecondary = {
   args: {
     placeholder: 'Custom placeholder',
+    type: 'search'
   },
 };

@@ -29,8 +29,8 @@ class App extends React.PureComponent {
 
           <View style={styles.background}>
             <SafeAreaView style={[styles.safeArea]}>
-              {/*<Navigation/>*/}
-              <PokemonNavigation/>
+              <Navigation/>
+              {/*<PokemonNavigation/>*/}
             </SafeAreaView>
           </View>
         </SafeAreaProvider>
