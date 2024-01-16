@@ -1,13 +1,13 @@
 import React from "react";
 import {Header, Icon} from "react-native-elements";
-import {BackgroundColor} from "../constants";
+import { BACKGROUND_COLOR } from "../../../../shared/consts";
 
-export default function MainHeader({navigation}) {
+export default function ItemHeader({navigation}) {
 
   return (
     <Header
       containerStyle={{
-        backgroundColor: BackgroundColor,
+        backgroundColor: BACKGROUND_COLOR,
         borderBottomWidth: 0,
         shadowColor: "transparent",
       }}

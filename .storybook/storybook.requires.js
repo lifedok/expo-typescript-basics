@@ -50,7 +50,6 @@ try {
 const getStories = () => {
   return {
     "./src/components/composite-components/loader-with-info/loader-with-info.stories.tsx": require("../src/components/composite-components/loader-with-info/loader-with-info.stories.tsx"),
-    "./src/components/composite-components/preview-block/preview-block.stories.tsx": require("../src/components/composite-components/preview-block/preview-block.stories.tsx"),
     "./src/components/composite-components/progress-with-info/progress-with-info.stories.tsx": require("../src/components/composite-components/progress-with-info/progress-with-info.stories.tsx"),
     "./src/components/simple-components/button/button.stories.tsx": require("../src/components/simple-components/button/button.stories.tsx"),
     "./src/components/simple-components/input/input.stories.tsx": require("../src/components/simple-components/input/input.stories.tsx"),

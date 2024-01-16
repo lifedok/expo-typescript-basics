@@ -3,38 +3,21 @@ import { StyleSheet, StatusBar, View } from 'react-native';
 import Constants from "expo-constants";
 import Storybook from "./.storybook";
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { Provider as MobxProvider } from "mobx-react";
-import ListStore from "./src/stores/list.store";
-import { PokemonNavigation } from "./src/screens/old-version/pokemon-navigation";
 import Navigation from "./src/navigation/navigation";
 
 class App extends React.PureComponent {
-  private allStores: any;
-
-  componentDidMount() {
-  }
-
-  public constructor(props) {
-    super(props);
-    this.allStores = {
-      listStore: new ListStore(),
-    }
-  }
 
   render() {
     return (
-      <MobxProvider store={this.allStores}>
-        <SafeAreaProvider>
-          <StatusBar/>
+      <SafeAreaProvider>
+        <StatusBar/>
 
-          <View style={styles.background}>
-            <SafeAreaView style={[styles.safeArea]}>
-              <Navigation/>
-              {/*<PokemonNavigation/>*/}
-            </SafeAreaView>
-          </View>
-        </SafeAreaProvider>
-      </MobxProvider>
+        <View style={styles.background}>
+          <SafeAreaView style={[styles.safeArea]}>
+            <Navigation/>
+          </SafeAreaView>
+        </View>
+      </SafeAreaProvider>
     )
   }
 }
