@@ -5,7 +5,7 @@ import Storybook from "./.storybook";
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Provider as MobxProvider } from "mobx-react";
 import ListStore from "./src/stores/list.store";
-import { PokemonNavigation } from "./src/screens/old/pokemon-navigation";
+import { PokemonNavigation } from "./src/screens/old-version/pokemon-navigation";
 import Navigation from "./src/navigation/navigation";
 
 class App extends React.PureComponent {
@@ -29,8 +29,8 @@ class App extends React.PureComponent {
 
           <View style={styles.background}>
             <SafeAreaView style={[styles.safeArea]}>
-              <Navigation/>
-              {/*<PokemonNavigation/>*/}
+              {/*<Navigation/>*/}
+              <PokemonNavigation/>
             </SafeAreaView>
           </View>
         </SafeAreaProvider>
