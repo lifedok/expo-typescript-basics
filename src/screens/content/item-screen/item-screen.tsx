@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { action, makeObservable, observable } from "mobx";
 import { View, Alert, Image } from "react-native";
 import { observer } from "mobx-react";
-import { ListItemProps } from "../list-screen/list/list-item/list-item.interface";
 import { ItemScreenStyles } from "./item-screen.styles";
 import { getPokemonItem } from "../../../services/user-service/user.service";
 import { PreviewBlock } from "../../../components/composite-components/preview-block/preview-block";
@@ -11,6 +10,7 @@ import Pickachu from "../../../assets/svg/pickachu.svg";
 import { SharedStyles } from "../../../shared/styles";
 import { ProgressList } from "./progress-list/progress-list";
 import { HomeScreenMockData } from "./home-screen-mock.data";
+import { ListItemProps } from "../home-screen/list/list-item/list-item.interface";
 
 @observer
 export class ItemScreen extends Component<{ props }, {}> {

@@ -7,9 +7,9 @@ import { action, makeObservable, observable } from "mobx";
 import { SharedStyles } from "../../../shared/styles";
 import { observer } from "mobx-react";
 import { List } from "./list/list";
-import { SearchBar } from "react-native-elements";
+import { Icon, SearchBar } from "react-native-elements";
 
-interface HomeScreenStateProps extends React.Component {
+interface HomeScreenStateProps {
   isLoading: boolean;
   listData: [];
   width: number;
@@ -18,7 +18,7 @@ interface HomeScreenStateProps extends React.Component {
 }
 
 @observer
-export class HomeScreen extends Component<{}, {}> {
+export class HomeScreen extends Component<{ props }, {}> {
 
   constructor(props: any) {
     super(props);
@@ -73,23 +73,34 @@ export class HomeScreen extends Component<{}, {}> {
   findDimensions(layout) {
     const {width} = layout;
     this.setState({width: width})
-    const state = (this.state as HomeScreenStateProps);
   }
 
   render() {
     const state = (this.state as HomeScreenStateProps);
+    const {navigation} = this.props;
     return (
       <View style={SharedStyles.contentWrapper}>
 
-        <SearchBar
-          placeholder="Find Pokemon by name ..."
-          inputContainerStyle={{backgroundColor: "#e9e9e9"}}
-          containerStyle={{backgroundColor: "transparent"}}
-          lightTheme={true}
-          round={true}
-          value={state.searchValue}
-          onChangeText={(value) => this.searchValue(value)}
-        />
+        <View style={{flexDirection: 'row'}}>
+          <SearchBar
+            placeholder="Find Pokemon by name ..."
+            inputContainerStyle={{backgroundColor: "#e9e9e9"}}
+            containerStyle={{backgroundColor: "transparent"}}
+            lightTheme={true}
+            round={true}
+            value={state.searchValue}
+            onChangeText={(value) => this.searchValue(value)}
+          />
+          <Icon
+            raised
+            name='sign-out'
+            type='font-awesome'
+            color='#f50'
+            onPress={() => {
+              navigation.openDrawer();
+              console.log('openDrawer')
+            }} />
+        </View>
 
         {
           state.isLoading ? <LoaderWithInfo/> : <List list={state.listData}/>

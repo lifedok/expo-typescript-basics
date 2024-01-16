@@ -4,6 +4,7 @@ import { Input } from "../../../components/simple-components/input/input";
 import { observer } from "mobx-react";
 import { action, makeObservable, observable } from "mobx";
 import { AuthFormStyles } from "./auth-form.styles";
+import { Icon } from "react-native-elements";
 
 interface IAuthForm {
   welcomeText: string,
@@ -53,6 +54,11 @@ export class AuthForm extends React.PureComponent<IAuthForm> {
               <Text style={AuthFormStyles.textSecure}
                     onPress={() => this.setSecureText(!this.isSecureText)}>
                 {this.isSecureText ? 'off' : 'on'}
+                <Icon
+                  name={this.isSecureText  ? 'eye-slash' : 'eye'}
+                  type='font-awesome'
+                  color='#f50'
+                  ></Icon>
               </Text>
             </View>
           </View>
