@@ -7,6 +7,10 @@ import { DrawerContent } from "./driver/drawer-content/drawer-content";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
+const stackScreenOptions = {
+  headerShown: false,
+  gestureEnabled: true,
+};
 
 export default function ContentNavigation() {
 
@@ -18,9 +22,7 @@ export default function ContentNavigation() {
       <Drawer.Screen
         name="HomeScreen"
         component={StackNav}
-        options={{
-          headerShown: false,
-        }}/>
+        options={stackScreenOptions}/>
     </Drawer.Navigator>
   )
 }
@@ -31,12 +33,11 @@ const StackNav = () => {
       <Stack.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={{
-          headerShown: false,
-        }}/>
+        options={stackScreenOptions}/>
       <Stack.Screen
         name="ItemScreen"
         component={ItemScreen}
+        options={stackScreenOptions}
       />
     </Stack.Navigator>
   )

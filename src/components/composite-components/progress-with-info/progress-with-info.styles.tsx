@@ -20,9 +20,11 @@ export const ProgressWithInfoStyles = StyleSheet.create({
     top: 0,
     bottom: 0,
     left: 0,
-    backgroundColor: '#4586be',
+    backgroundColor: '#1a87d9',
   },
   label: {
-    fontSize: 16
+    fontSize: 16,
+    color: "#1a87d9",
+    fontWeight: "bold",
   }
 });

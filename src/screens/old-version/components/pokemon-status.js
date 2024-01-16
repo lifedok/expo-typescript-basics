@@ -3,12 +3,14 @@ import { StyleSheet, Text, View } from "react-native";
 import ProgressBar from "react-native-progress/Bar";
 
 export default function PokemonStatus({ title, value, progress }) {
+
+  console.log('progress', progress)
   return (
     <View style={styles.pokemonStatus}>
       <Text style={styles.pokemonStatusName}>{title}</Text>
       <Text style={styles.pokemonStatusPoint}>{value}</Text>
       <View style={styles.pokemonStatusBar}>
-        {/* https://github.com/oblador/react-native-progress */}
+
         <ProgressBar
           progress={progress}
           height={8}

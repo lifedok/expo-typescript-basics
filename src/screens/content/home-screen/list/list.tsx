@@ -68,7 +68,6 @@ export class List extends Component<ListProps, {}> {
   }
 
   render() {
-    console.log('this.props.list', this.props.list)
     return (
       <FlatList
         data={this.props.list}
