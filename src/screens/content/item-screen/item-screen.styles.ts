@@ -14,12 +14,21 @@ export const ItemScreenStyles = StyleSheet.create({
   content: {
     flex: 1,
     backgroundColor: "#fff",
-    borderRadius: 50,
+    borderRadius: 36,
     padding: 20,
     minHeight: 480,
     marginTop: 120,
     marginBottom: 30,
     marginHorizontal: 15,
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   avatar: {
     position: "absolute",
@@ -29,7 +38,7 @@ export const ItemScreenStyles = StyleSheet.create({
     top: -120,
     resizeMode: "contain",
     backgroundColor: '#fff',
-    borderRadius: 12
+    borderRadius: 12,
   },
   itemName: {
     marginTop: 90,

@@ -5,6 +5,15 @@ export const ProgressListStyles = StyleSheet.create({
     padding: 8,
     backgroundColor: '#e5e5eb',
     borderRadius: 25,
+
+    shadowColor: "#000000",
+    shadowOffset: {
+      width: 3,
+      height: 3,
+    },
+    shadowOpacity:  0.18,
+    shadowRadius: 4.59,
+    elevation: 5
   },
   inner: {
     backgroundColor: '#FFF',

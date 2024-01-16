@@ -74,14 +74,13 @@ export class ItemScreen extends Component<{ props }, {}> {
 
   render() {
     const {route: {params: {id, item}}, navigation} = this.props;
-    if (this.isLoading) return;
     const pokemon = this.item as any;
 
     return (
-      <View style={ItemScreenStyles.wrapper}>
+      <View style={[ItemScreenStyles.wrapper]}>
         {
           this.isLoading ?
-            <LoaderWithInfo/>
+            <ActivityIndicator animating size="large" color={'#fff'} style={{marginTop: 40}}/>
             :
             <View style={[SharedStyles.contentWrapper, ItemScreenStyles.container]}>
               <MainHeader navigation={navigation} />

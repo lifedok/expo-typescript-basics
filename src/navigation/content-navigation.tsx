@@ -9,7 +9,6 @@ const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 const stackScreenOptions = {
   headerShown: false,
-  gestureEnabled: true,
 };
 
 export default function ContentNavigation() {
