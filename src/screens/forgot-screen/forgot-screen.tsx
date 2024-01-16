@@ -2,11 +2,11 @@ import React from "react";
 import { View, Text, KeyboardAvoidingView } from "react-native";
 import { useHeaderHeight } from "@react-navigation/elements";
 import Constants from "expo-constants";
-import { Input } from "../../../components/simple-components/input/input";
-import { Button } from "../../../components/simple-components/button/button";
+import { Input } from "../../components/simple-components/input/input";
+import { Button } from "../../components/simple-components/button/button";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { firebaseAuth } from "../../../../firebase.config";
-import { InitSharedStyles } from "../init-shared.styles";
+import { firebaseAuth } from "../../../firebase.config";
+import { LoginSharedStyles } from "../../shared/styles";
 
 
 export function ForgotScreen({navigation}: { navigation: any }) {
@@ -37,15 +37,15 @@ export function ForgotScreen({navigation}: { navigation: any }) {
     <KeyboardAvoidingView
       behavior={'padding'}
       keyboardVerticalOffset={height + Constants.statusBarHeight}
-      style={InitSharedStyles.wrapper}
+      style={LoginSharedStyles.wrapper}
       enabled>
 
-      <View style={InitSharedStyles.content}>
-        <Text style={InitSharedStyles.text}>
+      <View style={LoginSharedStyles.content}>
+        <Text style={LoginSharedStyles.text}>
           Reset you password
         </Text>
 
-        <View style={InitSharedStyles.inputSecure}>
+        <View style={LoginSharedStyles.inputSecure}>
           <Input
             placeholder={'Enter your email'}
             value={email}
@@ -57,8 +57,8 @@ export function ForgotScreen({navigation}: { navigation: any }) {
 
           {
             isResetLink && (
-              <View style={[InitSharedStyles.inputLeftSide, {width: '100%', top: '77%', alignItems: 'center', paddingHorizontal: 0}]}>
-                <Text style={[InitSharedStyles.textSecure, {fontSize: 9, backgroundColor: 'transparent'}]}>
+              <View style={[LoginSharedStyles.inputLeftSide, {width: '100%', top: '77%', alignItems: 'center', paddingHorizontal: 0}]}>
+                <Text style={[LoginSharedStyles.textSecure, {fontSize: 9, backgroundColor: 'transparent'}]}>
                   Check your email or spam folder to find password reset link
                 </Text>
               </View>
@@ -66,7 +66,7 @@ export function ForgotScreen({navigation}: { navigation: any }) {
           }
         </View>
 
-        <View style={InitSharedStyles.buttonContainer}>
+        <View style={LoginSharedStyles.buttonContainer}>
           <Button
             onPress={handleResetPassword}
             isFill

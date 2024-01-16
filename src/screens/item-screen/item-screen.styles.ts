@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { PRIMARY_VIEW_LEFT_PADDING, PRIMARY_VIEW_RIGHT_PADDING } from "../../../shared/consts";
+import { PRIMARY_VIEW_LEFT_PADDING, PRIMARY_VIEW_RIGHT_PADDING } from "../../shared/consts";
 
 export const ItemScreenStyles = StyleSheet.create({
   wrapper: {

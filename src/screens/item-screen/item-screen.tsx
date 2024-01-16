@@ -3,12 +3,12 @@ import { action, makeObservable, observable } from "mobx";
 import { View, Alert, Image, ScrollView, ActivityIndicator, Text } from "react-native";
 import { observer } from "mobx-react";
 import { ItemScreenStyles } from "./item-screen.styles";
-import { getPokemonItem } from "../../../services/user-service/user.service";
-import { SharedStyles } from "../../../shared/styles";
+import { getPokemonItem } from "../../services/user-service/user.service";
+import { SharedStyles } from "../../shared/styles";
 import { ProgressList } from "./progress-list/progress-list";
 import {
   ProgressWithInfoProps
-} from "../../../components/composite-components/progress-with-info/progress-with-info.interface";
+} from "../../components/composite-components/progress-with-info/progress-with-info.interface";
 import ItemType from "./item-type/item-type";
 import ItemHeader from "./item-header/item-header";
 

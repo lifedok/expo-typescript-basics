@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { View, Alert } from "react-native";
-import { getPokemonList } from "../../../services/user-service/user.service";
-import { LoaderWithInfo } from "../../../components/composite-components/loader-with-info/loader-with-info";
-import { SharedStyles } from "../../../shared/styles";
+import { getPokemonList } from "../../services/user-service/user.service";
+import { LoaderWithInfo } from "../../components/composite-components/loader-with-info/loader-with-info";
+import { SharedStyles } from "../../shared/styles";
 import { List } from "./list/list";
 import { Icon, SearchBar } from "react-native-elements";
 

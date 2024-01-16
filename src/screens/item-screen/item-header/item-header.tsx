@@ -1,6 +1,6 @@
 import React from "react";
 import {Header, Icon} from "react-native-elements";
-import { BACKGROUND_COLOR } from "../../../../shared/consts";
+import { BACKGROUND_COLOR } from "../../../shared/consts";
 
 export default function ItemHeader({navigation}) {
 

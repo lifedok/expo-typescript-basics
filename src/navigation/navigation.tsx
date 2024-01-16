@@ -5,7 +5,7 @@ import {onAuthStateChanged} from 'firebase/auth'
 import { firebaseAuth } from "../../firebase.config";
 import ContentNavigation from "./content-navigation";
 import InitNavigation from "./init-navigation";
-import { StartScreen } from "../screens/init/start-screen/start-screen";
+import { StartScreen } from "../screens/start-screen/start-screen";
 
 const Stack = createNativeStackNavigator();
 

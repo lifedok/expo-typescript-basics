@@ -1,8 +1,8 @@
 import 'react-native-gesture-handler';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { ItemScreen } from "../screens/content/item-screen/item-screen";
-import { HomeScreen } from "../screens/content/home-screen/home-screen";
+import { ItemScreen } from "../screens/item-screen/item-screen";
+import { HomeScreen } from "../screens/home-screen/home-screen";
 import { DrawerContent } from "./driver/drawer-content/drawer-content";
 
 const Drawer = createDrawerNavigator();

@@ -2,7 +2,7 @@ import * as React from "react";
 import { View, Image, Text } from "react-native";
 import { ListItemProps } from "./list-item.interface";
 import { ListItemStyles } from "./list-item.styles";
-import { DirectionNavigator } from "../../../../components/direction-navigator/direction-navigator";
+import { DirectionNavigator } from "../direction-navigator/direction-navigator";
 
 export class ListItem extends React.Component<ListItemProps, {}> {
 
