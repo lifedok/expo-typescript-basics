@@ -5,8 +5,8 @@ import { firebaseAuth } from "../../../firebase.config";
 import Constants from 'expo-constants'
 import { useHeaderHeight } from '@react-navigation/elements'
 import { Button } from "../../components/simple-components/button/button";
-import { InitSharedStyles } from "../init-shared.styles";
 import { AuthForm } from "../components/auth-form/auth-form";
+import { LoginSharedStyles } from "../../shared/styles";
 
 export function LoginScreen({navigation}: { navigation: any }) {
   const [email, setEmail] = React.useState<string>('');
@@ -33,10 +33,10 @@ export function LoginScreen({navigation}: { navigation: any }) {
     <KeyboardAvoidingView
       behavior={'padding'}
       keyboardVerticalOffset={height + Constants.statusBarHeight}
-      style={InitSharedStyles.wrapper}
+      style={LoginSharedStyles.wrapper}
       enabled>
 
-      <View style={InitSharedStyles.content}>
+      <View style={LoginSharedStyles.content}>
         <AuthForm
           welcomeText={'Let\'s get you signed in!'}
           valueEmail={email}
@@ -58,7 +58,7 @@ export function LoginScreen({navigation}: { navigation: any }) {
           >Forgot Password?</Button>
         </View>
 
-        <View style={InitSharedStyles.buttonContainer}>
+        <View style={LoginSharedStyles.buttonContainer}>
           <Button
             onPress={handleSignIn}
             isFill
@@ -67,7 +67,7 @@ export function LoginScreen({navigation}: { navigation: any }) {
             {hasErrors || !isLoading ? 'Login' : 'Logging'}
           </Button>
 
-          <View style={InitSharedStyles.footerContent}>
+          <View style={LoginSharedStyles.footerContent}>
             <Text>New here?</Text>
             <Button
               type={'link'}
