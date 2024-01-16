@@ -1,34 +1,30 @@
 import React from "react";
 import { View, Text, KeyboardAvoidingView } from "react-native";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { firebaseAuth } from "../../../../firebase.config";
-import Constants from "expo-constants";
-import { useHeaderHeight } from "@react-navigation/elements";
-import { Button } from "../../../components/simple-components/button/button";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { firebaseAuth } from "../../../firebase.config";
+import Constants from 'expo-constants'
+import { useHeaderHeight } from '@react-navigation/elements'
+import { Button } from "../../components/simple-components/button/button";
 import { InitSharedStyles } from "../init-shared.styles";
-import { AuthForm } from "../../components/auth-form/auth-form";
+import { AuthForm } from "../components/auth-form/auth-form";
 
-
-export function SignupScreen({navigation}: { navigation: any }) {
+export function LoginScreen({navigation}: { navigation: any }) {
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<any>('');
   const [isLoading, setLoading] = React.useState<boolean>(false);
   const [hasErrors, setErrors] = React.useState<boolean>(true);
 
-  const handleCreateAccount = async () => {
+  const handleSignIn = async () => {
     setLoading(true);
     setErrors(false)
-    console.log('handleCreateAccount', email)
-    await createUserWithEmailAndPassword(firebaseAuth, email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('user', user)
+    await signInWithEmailAndPassword(firebaseAuth, email, password)
+      .then(() => {
         setLoading(false);
-        alert(`The account has been successfully created! \n Welcome ${firebaseAuth.currentUser?.email}`);
+        alert(`Login successful! \n Welcome ${firebaseAuth.currentUser?.email}`);
       })
       .catch((error) => {
         alert(error.message);
-        setErrors(true);
+        setErrors(true)
       })
   }
 
@@ -42,7 +38,7 @@ export function SignupScreen({navigation}: { navigation: any }) {
 
       <View style={InitSharedStyles.content}>
         <AuthForm
-          welcomeText={'Let\'s get you registered!'}
+          welcomeText={'Let\'s get you signed in!'}
           valueEmail={email}
           onChangeEmailText={(v) => {
             let value = v.toLowerCase();
@@ -55,24 +51,32 @@ export function SignupScreen({navigation}: { navigation: any }) {
           }}
         />
 
+        <View style={{alignItems: 'flex-end', paddingTop: 8, width: '100%'}}>
+          <Button
+            type={'link'}
+            onPress={() => navigation.navigate('ForgotScreen')}
+          >Forgot Password?</Button>
+        </View>
+
         <View style={InitSharedStyles.buttonContainer}>
           <Button
-            onPress={handleCreateAccount}
+            onPress={handleSignIn}
             isFill
             disabled={!email || !password}
           >
-            {hasErrors || !isLoading ? 'Create account' : 'Creating account'}
+            {hasErrors || !isLoading ? 'Login' : 'Logging'}
           </Button>
 
           <View style={InitSharedStyles.footerContent}>
-            <Text>Already have an account?</Text>
+            <Text>New here?</Text>
             <Button
               type={'link'}
-              onPress={() => navigation.navigate('LoginScreen')}
-            >Login Now</Button>
+              onPress={() => navigation.navigate('SignupScreen')}
+            >Register now</Button>
           </View>
         </View>
       </View>
+
     </KeyboardAvoidingView>
   )
 }

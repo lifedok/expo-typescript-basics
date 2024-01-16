@@ -2,10 +2,10 @@ import React from "react";
 import { View, Text, KeyboardAvoidingView } from "react-native";
 import { useHeaderHeight } from "@react-navigation/elements";
 import Constants from "expo-constants";
-import { Input } from "../../../components/simple-components/input/input";
-import { Button } from "../../../components/simple-components/button/button";
+import { Input } from "../../components/simple-components/input/input";
+import { Button } from "../../components/simple-components/button/button";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { firebaseAuth } from "../../../../firebase.config";
+import { firebaseAuth } from "../../../firebase.config";
 import { InitSharedStyles } from "../init-shared.styles";
 
 

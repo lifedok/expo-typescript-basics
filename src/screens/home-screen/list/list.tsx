@@ -10,7 +10,7 @@ import {
   LIST_RIGHT_PADDING,
   PRIMARY_VIEW_LEFT_PADDING,
   PRIMARY_VIEW_RIGHT_PADDING
-} from "../../../../shared/consts";
+} from "../../../shared/consts";
 
 
 interface ListProps {

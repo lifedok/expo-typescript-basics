@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, ImageBackground } from "react-native";
-import Images from "../../../assets/images/images";
-import Pickachu from "../../../assets/svg/jsx/pickachu";
-import { Button } from "../../../components/simple-components/button/button";
+import Images from "../../assets/images/images";
+import Pickachu from "../../assets/svg/jsx/pickachu";
+import { Button } from "../../components/simple-components/button/button";
 import { StartScreenStyles } from "./start-screen.style";
 
 export function StartScreen({navigation}: { navigation: any}) {

@@ -1,7 +1,7 @@
 import React from "react";
 import { ActivityIndicator } from "react-native";
 import { Image } from "react-native-elements";
-import { POKEMON_TYPE_ICON } from "../../../../shared/consts";
+import { POKEMON_TYPE_ICON } from "../../../shared/consts";
 
 export default function ItemType({ type }) {
   return (
