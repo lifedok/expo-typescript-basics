@@ -4,6 +4,7 @@ import { ListItemProps } from "./list-item.interface";
 import { ListItemStyles } from "./list-item.styles";
 import { DirectionNavigator } from "../../../../components/direction-navigator/direction-navigator";
 import {
+  LIST_LEFT_PADDING, LIST_RIGHT_PADDING,
   PRIMARY_VIEW_LEFT_PADDING,
   PRIMARY_VIEW_RIGHT_PADDING
 } from "../../../../../shared/consts";

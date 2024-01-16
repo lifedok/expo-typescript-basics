@@ -72,7 +72,7 @@ export function LoginScreen({navigation}: { navigation: any }) {
             <Button
               type={'link'}
               onPress={() => navigation.navigate('SignupScreen')}
-            >Sign up</Button>
+            >Register now</Button>
           </View>
         </View>
       </View>

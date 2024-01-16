@@ -5,7 +5,7 @@ import Storybook from "./.storybook";
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Provider as MobxProvider } from "mobx-react";
 import ListStore from "./src/stores/list.store";
-import { PokemonNavigation } from "./src/screens/version1.0/pokemon-navigation";
+import { PokemonNavigation } from "./src/screens/old/pokemon-navigation";
 import Navigation from "./src/navigation/navigation";
 
 class App extends React.PureComponent {
@@ -42,7 +42,6 @@ class App extends React.PureComponent {
 export default Constants.expoConfig?.extra?.storybookEnabled ? Storybook : App;
 
 const marginColor = '#fff';
-const paddingColor = '#10ac84';
 const styles = StyleSheet.create({
   background: {
     flex: 1,
@@ -50,7 +49,6 @@ const styles = StyleSheet.create({
   },
   safeArea: {
     flex: 1,
-    // backgroundColor: paddingColor,
     borderRadius: 16,
   },
 });

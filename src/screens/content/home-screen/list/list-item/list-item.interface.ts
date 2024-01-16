@@ -1,5 +1,5 @@
 export interface ListItemProps {
   name: string;
-  url: string;
+  url?: string;
   width?: number
 }

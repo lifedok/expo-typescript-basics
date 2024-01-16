@@ -10,6 +10,7 @@ export const SharedStyles = StyleSheet.create({
     paddingRight: 12
   },
   contentWrapper: {
+    flex: 1,
     paddingTop: 12,
     paddingBottom: 6,
     paddingLeft: PRIMARY_VIEW_LEFT_PADDING,
