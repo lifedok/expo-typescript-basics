@@ -24,8 +24,22 @@ export default ButtonMeta;
 
 export const ButtonDefault = {};
 
-export const ButtonSecondary = {
+export const ButtonOutlineAndFill = {
   args: {
-    text: 'button secondary',
+    type: 'outline',
+  },
+};
+
+export const ButtonLink = {
+  args: {
+    type: 'link',
+  },
+};
+
+export const DefaultDisabledFill = {
+  args: {
+    type: 'default',
+    isFill: true,
+    disabled: true
   },
 };

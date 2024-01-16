@@ -18,7 +18,11 @@ export class ProgressList extends PureComponent<ProgressListProps> {
         <View style={ProgressListStyles.inner}>
           {
             this.props.list.map((item: ProgressWithInfoProps, index) => (
-              <ProgressWithInfo {...item} key={`${item.value}_${index}`}/>
+              <ProgressWithInfo
+                key={`${item.value}_${index}`}
+                value={item.value}
+                label={`${item.label} (${item.value})`}
+              />
             ))
           }
         </View>

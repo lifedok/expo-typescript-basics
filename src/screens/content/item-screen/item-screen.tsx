@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { action, makeObservable, observable } from "mobx";
-import { View, Alert, Image } from "react-native";
+import { View, Alert, Image, ScrollView, ActivityIndicator, Text } from "react-native";
 import { observer } from "mobx-react";
 import { ItemScreenStyles } from "./item-screen.styles";
 import { getPokemonItem } from "../../../services/user-service/user.service";
-import { PreviewBlock } from "../../../components/composite-components/preview-block/preview-block";
-import { IS_RUNNING_IN_EXPO_GO } from "../../../shared/utils";
-import Pickachu from "../../../assets/svg/pickachu.svg";
 import { SharedStyles } from "../../../shared/styles";
 import { ProgressList } from "./progress-list/progress-list";
-import { HomeScreenMockData } from "./home-screen-mock.data";
-import { ListItemProps } from "../home-screen/list/list-item/list-item.interface";
+import {
+  ProgressWithInfoProps
+} from "../../../components/composite-components/progress-with-info/progress-with-info.interface";
+import ItemType from "./item-type/item-type";
+import ItemHeader from "./item-header/item-header";
 
 @observer
 export class ItemScreen extends Component<{ props }, {}> {
@@ -21,10 +21,10 @@ export class ItemScreen extends Component<{ props }, {}> {
     this.isLoading = value;
   }
 
-  @observable public item: ListItemProps;
+  @observable item = [];
 
-  @action setItem(value: ListItemProps) {
-    this.item = value;
+  @action setItem(data) {
+    this.item = data;
   }
 
   constructor(props: any) {
@@ -32,10 +32,10 @@ export class ItemScreen extends Component<{ props }, {}> {
     makeObservable(this);
   }
 
-  async updateItemData() {
+  async updateItemData(id: string) {
     try {
       this.setIsLoading(true);
-      const data = getPokemonItem(2);
+      const data = await getPokemonItem(id);
       this.setItem(await data);
     } catch (err) {
       console.error('Error fetching item data:', err);
@@ -47,32 +47,63 @@ export class ItemScreen extends Component<{ props }, {}> {
   }
 
   componentDidMount() {
-    const {route: {params: {id, item}}} = this.props;
-    const {navigation} = this.props;
+    const {route: {params: {id}}, navigation} = this.props;
     navigation.setOptions({title: id})
-    this.updateItemData();
+
+    this.updateItemData(id);
   }
 
-  componentDidUpdate() {
+  getPokemonStats(): ProgressWithInfoProps[] {
+    const pokemon = this.item as any;
+    return pokemon.stats.map((item) => {
+      const {stat, base_stat} = item;
+      return ({
+        label: stat.name,
+        value: base_stat
+      })
+    })
   }
 
   render() {
-    const {route: {params: {id, item}}} = this.props;
-    return (
-      <View style={[SharedStyles.contentWrapper, ItemScreenStyles.container]}>
-        <PreviewBlock info={id}>
-          {
-            IS_RUNNING_IN_EXPO_GO ?
-              <Pickachu width="100%" height="120"/>
-              :
-              <Image
-                source={{uri: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS5krfWpMHUZTJd2v6Bihpi9fEYrTh1jDxqqiOUh8ug-b_8L3PL'}}
-                resizeMode="contain"
-                style={{width: 120, height: 120, borderRadius: 12}}/>
-          }
-        </PreviewBlock>
+    const {route: {params: {id, item}}, navigation} = this.props;
+    const pokemon = this.item as any;
 
-        <ProgressList list={HomeScreenMockData}/>
+    return (
+      <View style={[ItemScreenStyles.wrapper]}>
+        {
+          this.isLoading ?
+            <ActivityIndicator animating size="large" color={'#fff'} style={{marginTop: 40}}/>
+            :
+            <View style={[SharedStyles.contentWrapper, ItemScreenStyles.container]}>
+              <ItemHeader navigation={navigation} />
+              <ScrollView style={{flex: 1}}>
+                <View style={ItemScreenStyles.content}>
+                  <Image
+                    style={ItemScreenStyles.avatar}
+                    placeholderStyle={{backgroundColor: "transparent"}}
+                    PlaceholderContent={<ActivityIndicator/>}
+                    source={{uri: item}}
+                  />
+                  <Text style={ItemScreenStyles.itemName}>{pokemon.name}</Text>
+
+                  <View style={{flexDirection: "row", justifyContent: "center", paddingBottom: 32}}>
+                    {
+                      pokemon.types.map(({type}, index) => {
+                        return (
+                          <View style={ItemScreenStyles.pokemonType} key={`${type.name}_${index}`}>
+                            <ItemType type={type.name}/>
+                            <Text>{type.name}</Text>
+                          </View>
+                        )
+                      })
+                    }
+                  </View>
+
+                  <ProgressList list={this.getPokemonStats()}/>
+                </View>
+              </ScrollView>
+            </View>
+        }
       </View>
     )
   }

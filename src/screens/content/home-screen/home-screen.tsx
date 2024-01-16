@@ -29,7 +29,7 @@ export class HomeScreen extends Component<{ props }, {}> {
 
   async updateListData() {
     try {
-      const data = getPokemonList();
+      const data = getPokemonList(); // TODO: add apollo with GraphQL
       this.setState({
         listData: await data,
         filteredListData: await data
@@ -42,7 +42,7 @@ export class HomeScreen extends Component<{ props }, {}> {
     }
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.setState({isLoading: true})
     this.updateListData()
   }
@@ -63,7 +63,7 @@ export class HomeScreen extends Component<{ props }, {}> {
     const state = (this.state as HomeScreenStateProps);
     const {navigation} = this.props;
     return (
-      <View style={SharedStyles.contentWrapper}>
+      <View style={[SharedStyles.contentWrapper]}>
 
         <View style={{flexDirection: 'row', alignItems: 'center', gap: 12, paddingRight: 10}}>
           <SearchBar
