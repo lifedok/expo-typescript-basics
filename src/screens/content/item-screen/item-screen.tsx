@@ -10,7 +10,7 @@ import Pickachu from "../../../assets/svg/pickachu.svg";
 import { SharedStyles } from "../../../shared/styles";
 import { ProgressList } from "./progress-list/progress-list";
 import { HomeScreenMockData } from "./home-screen-mock.data";
-import { ListItemProps } from "../home-screen/list/list-item/list-item.interface";
+import { LoaderWithInfo } from "../../../components/composite-components/loader-with-info/loader-with-info";
 
 @observer
 export class ItemScreen extends Component<{ props }, {}> {
@@ -21,10 +21,10 @@ export class ItemScreen extends Component<{ props }, {}> {
     this.isLoading = value;
   }
 
-  @observable public item: ListItemProps;
+  @observable item = [];
 
-  @action setItem(value: ListItemProps) {
-    this.item = value;
+  @action setItem(data) {
+    this.item = data;
   }
 
   constructor(props: any) {
@@ -32,10 +32,10 @@ export class ItemScreen extends Component<{ props }, {}> {
     makeObservable(this);
   }
 
-  async updateItemData() {
+  async updateItemData(id: string) {
     try {
       this.setIsLoading(true);
-      const data = getPokemonItem(2);
+      const data = await getPokemonItem(id);
       this.setItem(await data);
     } catch (err) {
       console.error('Error fetching item data:', err);
@@ -47,34 +47,34 @@ export class ItemScreen extends Component<{ props }, {}> {
   }
 
   componentDidMount() {
-    const {route: {params: {id, item}}} = this.props;
-    const {navigation} = this.props;
+    const {route: {params: {id}}, navigation} = this.props;
     navigation.setOptions({title: id})
-    this.updateItemData();
-  }
 
-  componentDidUpdate() {
+    this.updateItemData(id);
   }
 
   render() {
     const {route: {params: {id, item}}} = this.props;
-    console.log('item', item)
+    console.log('render ==> this.item', this.item);
     return (
-      <View style={[SharedStyles.contentWrapper, ItemScreenStyles.container]}>
-        <PreviewBlock info={id}>
-          {
-            IS_RUNNING_IN_EXPO_GO ?
-              <Pickachu width="100%" height="120"/>
-              :
-              <Image
-                source={{uri: item}}
-                resizeMode="contain"
-                style={{width: 120, height: 120, borderRadius: 12}}/>
-          }
-        </PreviewBlock>
+      this.isLoading ?
+        <LoaderWithInfo/>
+        :
+        <View style={[SharedStyles.contentWrapper, ItemScreenStyles.container]}>
+          <PreviewBlock info={id}>
+            {
+              IS_RUNNING_IN_EXPO_GO ?
+                <Pickachu width="100%" height="120"/>
+                :
+                <Image
+                  source={{uri: item}}
+                  resizeMode="contain"
+                  style={{width: 120, height: 120, borderRadius: 12}}/>
+            }
+          </PreviewBlock>
 
-        <ProgressList list={HomeScreenMockData}/>
-      </View>
+          <ProgressList list={HomeScreenMockData}/>
+        </View>
     )
   }
 }

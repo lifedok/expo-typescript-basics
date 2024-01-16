@@ -42,7 +42,7 @@ export class HomeScreen extends Component<{ props }, {}> {
     }
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.setState({isLoading: true})
     this.updateListData()
   }
