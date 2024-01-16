@@ -4,7 +4,7 @@ import { IDrawerItem } from "../driver-item/drawer-item.interface";
 
 // icon from font-awesome (https://fontawesome.com/v4/icons/)
 const DrawerList: IDrawerItem[] = [
-  {icon: 'home', label: 'Home', navigateTo: 'Home'},
+  {icon: 'home', label: 'Home', navigateTo: 'HomeScreen'},
 ];
 
 export class DrawerItems extends React.PureComponent {
