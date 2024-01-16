@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, Alert, Image } from "react-native";
+import { View, Alert } from "react-native";
 import { getPokemonList } from "../../../services/user-service/user.service";
 import { LoaderWithInfo } from "../../../components/composite-components/loader-with-info/loader-with-info";
-import { firebaseAuth } from "../../../../firebase.config";
-import { action, makeObservable, observable } from "mobx";
 import { SharedStyles } from "../../../shared/styles";
-import { observer } from "mobx-react";
 import { List } from "./list/list";
 import { Icon, SearchBar } from "react-native-elements";
 
@@ -17,12 +14,10 @@ interface HomeScreenStateProps {
   filteredListData: [];
 }
 
-@observer
 export class HomeScreen extends Component<{ props }, {}> {
 
   constructor(props: any) {
     super(props);
-    makeObservable(this);
     this.state = {
       isLoading: false,
       listData: [],
@@ -64,42 +59,28 @@ export class HomeScreen extends Component<{ props }, {}> {
     this.setState({listData: filteredList, searchValue: value})
   }
 
-  handleSignOut = () => {
-    firebaseAuth.signOut().then(() => {
-      alert(`You have successfully logged out!`);
-    }).catch((error) => alert(error.message))
-  }
-
-  findDimensions(layout) {
-    const {width} = layout;
-    this.setState({width: width})
-  }
-
   render() {
     const state = (this.state as HomeScreenStateProps);
     const {navigation} = this.props;
     return (
       <View style={SharedStyles.contentWrapper}>
 
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', alignItems: 'center', gap: 12, paddingRight: 10}}>
           <SearchBar
             placeholder="Find Pokemon by name ..."
             inputContainerStyle={{backgroundColor: "#e9e9e9"}}
-            containerStyle={{backgroundColor: "transparent"}}
+            containerStyle={{backgroundColor: "transparent", flex: 1}}
             lightTheme={true}
             round={true}
             value={state.searchValue}
             onChangeText={(value) => this.searchValue(value)}
           />
           <Icon
-            raised
-            name='sign-out'
+            name='navicon'
             type='font-awesome'
-            color='#f50'
-            onPress={() => {
-              navigation.openDrawer();
-              console.log('openDrawer')
-            }} />
+            color='#453535'
+            size={24}
+            onPress={() => navigation.openDrawer()} />
         </View>
 
         {

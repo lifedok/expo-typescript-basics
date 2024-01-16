@@ -51,15 +51,12 @@ export class AuthForm extends React.PureComponent<IAuthForm> {
             />
 
             <View style={AuthFormStyles.inputLeftSide}>
-              <Text style={AuthFormStyles.textSecure}
-                    onPress={() => this.setSecureText(!this.isSecureText)}>
-                {this.isSecureText ? 'off' : 'on'}
-                <Icon
-                  name={this.isSecureText  ? 'eye-slash' : 'eye'}
-                  type='font-awesome'
-                  color='#f50'
-                  ></Icon>
-              </Text>
+              <Icon
+                name={this.isSecureText  ? 'eye-slash' : 'eye'}
+                type='font-awesome'
+                color='#0782f9'
+                onPress={() => this.setSecureText(!this.isSecureText)}
+                />
             </View>
           </View>
         </View>

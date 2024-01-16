@@ -26,7 +26,8 @@ export default ({config}: ConfigContext): ExpoConfig => ({
     }
   },
   web: {
-    favicon: "./src/assets/images/favicon.png"
+    favicon: "./src/assets/images/favicon.png",
+    bundler: "metro"
   },
   extra: {
     storybookEnabled: process.env.STORYBOOK === '1'
