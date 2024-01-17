@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { SearchBg, SearchColor, SecondaryBg, SecondaryColor } from "../../../shared/colors";
 
 export const InputStyles = StyleSheet.create({
   container: {
@@ -7,16 +8,16 @@ export const InputStyles = StyleSheet.create({
     width: '100%',
   },
   containerType_default: {
-    backgroundColor: '#fff',
-    color: '#000',
+    backgroundColor: SecondaryBg,
+    color: SecondaryColor,
 
     borderRadius: 8,
     paddingHorizontal: 16,
     paddingVertical: 10,
   },
   containerType_search : {
-    backgroundColor: '#002856',
-    color: '#5868F9',
+    backgroundColor: SearchBg,
+    color: SearchColor,
 
     borderRadius: 17,
     paddingHorizontal: 18,

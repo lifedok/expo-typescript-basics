@@ -25,7 +25,6 @@ const POKEMON_TYPE_ICON = {
   default: require("./../assets/images/png/type-ice.png"),
 };
 
-const BACKGROUND_COLOR = "#559EDF";
 
 export {
   LIST_LEFT_PADDING,
@@ -33,5 +32,4 @@ export {
   PRIMARY_VIEW_RIGHT_PADDING,
   PRIMARY_VIEW_LEFT_PADDING,
   POKEMON_TYPE_ICON,
-  BACKGROUND_COLOR
 };

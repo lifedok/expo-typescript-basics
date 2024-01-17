@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 import { LIST_LEFT_PADDING, LIST_RIGHT_PADDING } from "../../../shared/consts";
+import { SharedShadowStyles } from "../../../shared/styles";
+import { ListBg } from "../../../shared/colors";
 
 export const ListStyles = StyleSheet.create({
   container: {
@@ -13,15 +15,7 @@ export const ListStyles = StyleSheet.create({
     marginTop: 12,
     paddingLeft: LIST_LEFT_PADDING,
     paddingRight: LIST_RIGHT_PADDING,
-    backgroundColor: '#5f9ea0',
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
+    backgroundColor: ListBg,
+    ...SharedShadowStyles
   }
 });

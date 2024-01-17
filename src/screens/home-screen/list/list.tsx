@@ -11,6 +11,7 @@ import {
   PRIMARY_VIEW_LEFT_PADDING,
   PRIMARY_VIEW_RIGHT_PADDING
 } from "../../../shared/consts";
+import { SecondaryDarkTextColor } from "../../../shared/colors";
 
 
 interface ListProps {
@@ -79,7 +80,7 @@ export class List extends Component<ListProps, {}> {
         initialNumToRender={20}
         ListEmptyComponent={() => (
           <View style={{alignItems: 'center', justifyContent: 'center', paddingTop: 32, paddingBottom: 32, flex: 1}}>
-            <Text style={{color: '#5868F9', fontSize: 16}}>No results</Text>
+            <Text style={{color: SecondaryDarkTextColor, fontSize: 16}}>No results</Text>
           </View>
         )}
       />

@@ -5,6 +5,7 @@ import { LoaderWithInfo } from "../../components/composite-components/loader-wit
 import { SharedStyles } from "../../shared/styles";
 import { List } from "./list/list";
 import { Icon, SearchBar } from "react-native-elements";
+import { InputBg } from "../../shared/colors";
 
 interface HomeScreenStateProps {
   isLoading: boolean;
@@ -68,7 +69,7 @@ export class HomeScreen extends Component<{ props }, {}> {
         <View style={{flexDirection: 'row', alignItems: 'center', gap: 12, paddingRight: 10}}>
           <SearchBar
             placeholder="Find Pokemon by name ..."
-            inputContainerStyle={{backgroundColor: "#e9e9e9"}}
+            inputContainerStyle={{backgroundColor: InputBg}}
             containerStyle={{backgroundColor: "transparent", flex: 1}}
             lightTheme={true}
             round={true}
