@@ -12,10 +12,42 @@ export function LoginScreen({navigation}: { navigation: any }) {
   const [password, setPassword] = React.useState<any>('');
   const [isLoading, setLoading] = React.useState<boolean>(false);
   const [hasErrors, setErrors] = React.useState<boolean>(true);
+  const [errorText, setErrorText] = React.useState<string>('');
 
-  const handleSignIn = async () => {
+  const isFormError = (): boolean => {
+    let isError: boolean = false;
+    if (!!email?.length) {
+      if (!email.includes('@')) {
+        setErrorText('Invalid email')
+        isError = true;
+      } else if (email.indexOf(' ') != -1) {
+        setErrorText('Email can not contain spaces')
+        isError = true;
+      }
+    }
+    if (!!password?.length) {
+      if (password.length < 6) {
+        setErrorText('Password should be more then 6 charters')
+        isError = true;
+      } else if (password.indexOf(' ') != -1) {
+        setErrorText('Password can not contain spaces')
+        isError = true;
+      }
+    }
+    return isError;
+  }
+
+  const handleSignIn = () => {
+    const formIsValid = isFormError();
+    if (!formIsValid) {
+      firebaseSignIn();
+    }
+  }
+
+  const firebaseSignIn = async () => {
     setLoading(true);
-    setErrors(false)
+    setErrors(false);
+
     await signInWithEmailAndPassword(firebaseAuth, email, password)
       .then(() => {
         setLoading(false);
@@ -37,10 +69,12 @@ export function LoginScreen({navigation}: { navigation: any }) {
         <AuthForm
           welcomeText={'Let\'s get you signed in!'}
           valueEmail={email}
-          onChangeEmailText={(v) => setEmail(v)}
+          onChangeEmailText={(v) => {setEmail(v), setErrorText('')}}
           valuePassword={password}
-          onChangePasswordText={(v) => setPassword(v)}
+          onChangePasswordText={(v) => {setPassword(v), setErrorText('')}}
         />
+
+        {!!errorText?.length && <Text style={LoginSharedStyles.errorText}>{errorText}</Text>}
 
         <View style={{alignItems: 'flex-end', paddingTop: 8, width: '100%'}}>
           <Button

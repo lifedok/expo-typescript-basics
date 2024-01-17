@@ -28,4 +28,4 @@ _For more advance examples, see [React Native TypeScript examples](https://githu
 
 - Run server: `yarn storybook:start`. Then use app **Expo Go** on your mobile and scan QR code on the terminal.
 
-## Run storybook
+
