@@ -75,6 +75,8 @@ export class List extends Component<ListProps, {}> {
         style={{paddingLeft: PRIMARY_VIEW_LEFT_PADDING, paddingRight: PRIMARY_VIEW_RIGHT_PADDING}}
         onLayout={(event) => this.findDimensions(event.nativeEvent.layout)}
         renderItem={(item) => this.renderItem(item)}
+        horizontal={false}
+        numColumns={3}
         keyExtractor={(item) => item.name.toString()}
         ListFooterComponent={<View><Text style={{padding: 12}}/></View>}
         initialNumToRender={20}

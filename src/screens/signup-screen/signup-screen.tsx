@@ -2,11 +2,10 @@ import React from "react";
 import { View, Text, KeyboardAvoidingView } from "react-native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { firebaseAuth } from "../../../firebase.config";
-import Constants from "expo-constants";
-import { useHeaderHeight } from "@react-navigation/elements";
 import { Button } from "../../components/simple-components/button/button";
 import { AuthForm } from "../components/auth-form/auth-form";
 import { LoginSharedStyles } from "../../shared/styles";
+import { IS_ANDROID } from "../../shared/utils";
 
 
 export function SignupScreen({navigation}: { navigation: any }) {
@@ -32,27 +31,19 @@ export function SignupScreen({navigation}: { navigation: any }) {
       })
   }
 
-  const height = useHeaderHeight()
   return (
     <KeyboardAvoidingView
-      behavior={'padding'}
-      keyboardVerticalOffset={height + Constants.statusBarHeight}
+      behavior={IS_ANDROID ? 'height' : 'padding'}
       style={LoginSharedStyles.wrapper}
-      enabled>
+      enabled={false}>
 
       <View style={LoginSharedStyles.content}>
         <AuthForm
           welcomeText={'Let\'s get you registered!'}
           valueEmail={email}
-          onChangeEmailText={(v) => {
-            let value = v.toLowerCase();
-            setEmail(value)
-          }}
+          onChangeEmailText={(v) => setEmail(v)}
           valuePassword={password}
-          onChangePasswordText={(v) => {
-            let value = v.toLowerCase();
-            setPassword(value)
-          }}
+          onChangePasswordText={(v) => setPassword(v)}
         />
 
         <View style={LoginSharedStyles.buttonContainer}>

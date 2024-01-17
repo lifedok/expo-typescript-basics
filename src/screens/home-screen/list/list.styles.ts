@@ -7,8 +7,6 @@ export const ListStyles = StyleSheet.create({
   container: {
     display: 'flex',
     alignItems: 'center',
-    flexDirection: 'row', // horizontal={false}
-    flexWrap: 'wrap', // numColumns={3?}
     borderRadius: 18,
     paddingTop: 6,
     paddingBottom: 6,
