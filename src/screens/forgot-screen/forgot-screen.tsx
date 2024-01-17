@@ -1,12 +1,11 @@
 import React from "react";
 import { View, Text, KeyboardAvoidingView } from "react-native";
-import { useHeaderHeight } from "@react-navigation/elements";
-import Constants from "expo-constants";
 import { Input } from "../../components/simple-components/input/input";
 import { Button } from "../../components/simple-components/button/button";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { firebaseAuth } from "../../../firebase.config";
 import { LoginSharedStyles } from "../../shared/styles";
+import { IS_ANDROID } from "../../shared/utils";
 
 
 export function ForgotScreen({navigation}: { navigation: any }) {
@@ -14,8 +13,6 @@ export function ForgotScreen({navigation}: { navigation: any }) {
   const [isResetLink, setResetLink] = React.useState<boolean>(false);
   const [isLoading, setLoading] = React.useState<boolean>(false);
   const [hasErrors, setErrors] = React.useState<boolean>(true);
-
-  const height = useHeaderHeight();
 
   const handleResetPassword = async () => {
     setLoading(true);
@@ -35,10 +32,9 @@ export function ForgotScreen({navigation}: { navigation: any }) {
 
   return (
     <KeyboardAvoidingView
-      behavior={'padding'}
-      keyboardVerticalOffset={height + Constants.statusBarHeight}
+      behavior={IS_ANDROID ? 'height' : 'padding'}
       style={LoginSharedStyles.wrapper}
-      enabled>
+      enabled={false}>
 
       <View style={LoginSharedStyles.content}>
         <Text style={LoginSharedStyles.text}>
@@ -49,10 +45,7 @@ export function ForgotScreen({navigation}: { navigation: any }) {
           <Input
             placeholder={'Enter your email'}
             value={email}
-            onChangeText={(v) => {
-              let value = v.toLowerCase();
-              setEmail(value)
-            }}
+            onChangeText={(v) => setEmail(v)}
           />
 
           {

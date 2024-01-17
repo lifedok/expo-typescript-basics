@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { PrimaryTextColor, SecondaryBg, SecondaryColor, SecondaryTextColor, WarningTextColor } from "./colors";
 
 const SharedStyles = StyleSheet.create({
   viewCenter: {
@@ -13,7 +14,7 @@ const SharedStyles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 6,
 
-    shadowColor: "#000",
+    shadowColor: SecondaryColor,
     shadowOffset: {
       width: 0,
       height: 1,
@@ -34,10 +35,20 @@ const LoginSharedStyles = StyleSheet.create({
     width: '75%',
     alignItems: 'center'
   },
+  errorText: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: WarningTextColor,
+    paddingTop: 8,
+    paddingHorizontal: 12,
+    display: 'flex',
+    width: '100%',
+    flexDirection: 'row-reverse'
+  },
   text: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#002856',
+    color: PrimaryTextColor,
     paddingBottom: 42
   },
   inputContainer: {
@@ -59,13 +70,13 @@ const LoginSharedStyles = StyleSheet.create({
     display: 'flex',
   },
   textSecure: {
-    backgroundColor: '#fff',
-    color: '#0782f9',
+    backgroundColor: SecondaryBg,
+    color: SecondaryTextColor,
     paddingHorizontal: 6,
     paddingVertical: 4,
   },
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: SecondaryBg,
     paddingHorizontal: 16,
     paddingVertical: 10,
     borderRadius: 8,
@@ -83,4 +94,16 @@ const LoginSharedStyles = StyleSheet.create({
   }
 });
 
-export {SharedStyles, LoginSharedStyles}
+const SharedShadowStyles = {
+  shadowColor: SecondaryColor,
+  shadowOffset: {
+    width: 0,
+    height: 2,
+  },
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+
+  elevation: 5,
+}
+
+export {SharedStyles, LoginSharedStyles, SharedShadowStyles}

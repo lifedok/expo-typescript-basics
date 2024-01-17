@@ -6,6 +6,7 @@ import { firebaseAuth } from "../../firebase.config";
 import ContentNavigation from "./content-navigation";
 import InitNavigation from "./init-navigation";
 import { StartScreen } from "../screens/start-screen/start-screen";
+import { PrimaryColor } from "../shared/colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +26,7 @@ export default function Navigation() {
         initialRouteName={!user ? 'StartScreen' : 'HomeScreen'}
         screenOptions={{
           headerMode: 'screen',
-          headerTintColor: 'black'
+          headerTintColor: PrimaryColor
         }}>
 
         {

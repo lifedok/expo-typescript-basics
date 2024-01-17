@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { PrimaryBg, PrimaryColor, ProgressBg } from "../../../shared/colors";
 
 export const ProgressWithInfoStyles = StyleSheet.create({
   wrapper: {
@@ -10,7 +11,7 @@ export const ProgressWithInfoStyles = StyleSheet.create({
   field: {
     width: '100%',
     height: 12,
-    backgroundColor: '#e1dede',
+    backgroundColor: ProgressBg,
     overflow: "hidden",
     borderRadius: 12,
     position: 'relative'
@@ -20,11 +21,11 @@ export const ProgressWithInfoStyles = StyleSheet.create({
     top: 0,
     bottom: 0,
     left: 0,
-    backgroundColor: '#1a87d9',
+    backgroundColor: PrimaryBg,
   },
   label: {
     fontSize: 16,
-    color: "#1a87d9",
+    color: PrimaryColor,
     fontWeight: "bold",
   }
 });

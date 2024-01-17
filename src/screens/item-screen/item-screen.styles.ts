@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
 import { PRIMARY_VIEW_LEFT_PADDING, PRIMARY_VIEW_RIGHT_PADDING } from "../../shared/consts";
+import { SharedShadowStyles } from "../../shared/styles";
+import { ItemBg, PrimaryBgLight, SecondaryColorLight } from "../../shared/colors";
 
 export const ItemScreenStyles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#559EDF',
+    backgroundColor: PrimaryBgLight,
     flex: 1,
   },
   container: {
@@ -13,22 +15,14 @@ export const ItemScreenStyles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: ItemBg,
     borderRadius: 36,
     padding: 20,
     minHeight: 480,
     marginTop: 120,
     marginBottom: 30,
     marginHorizontal: 15,
-
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    ...SharedShadowStyles
   },
   avatar: {
     position: "absolute",
@@ -37,14 +31,14 @@ export const ItemScreenStyles = StyleSheet.create({
     alignSelf: "center",
     top: -120,
     resizeMode: "contain",
-    backgroundColor: '#fff',
+    backgroundColor: ItemBg,
     borderRadius: 12,
   },
   itemName: {
     marginTop: 90,
     alignSelf: "center",
     fontSize: 30,
-    color: "#4f4f4f",
+    color: SecondaryColorLight,
   },
   pokemonType: {
     alignItems: "center",

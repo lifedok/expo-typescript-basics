@@ -3,8 +3,9 @@ import { View, Image, Text } from "react-native";
 import { ListItemProps } from "./list-item.interface";
 import { ListItemStyles } from "./list-item.styles";
 import { DirectionNavigator } from "../direction-navigator/direction-navigator";
+import { PureComponent } from "react";
 
-export class ListItem extends React.Component<ListItemProps, {}> {
+export class ListItem extends PureComponent<ListItemProps> {
 
   render() {
     const {url, name, width} = this.props;

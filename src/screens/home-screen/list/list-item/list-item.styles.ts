@@ -1,25 +1,19 @@
 import { StyleSheet } from "react-native";
+import { ItemBg, SecondaryColor } from "../../../../shared/colors";
+import { SharedShadowStyles } from "../../../../shared/styles";
 
 export const ListItemStyles = StyleSheet.create({
   wrapper: {
     padding: 2,
   },
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: ItemBg,
     borderRadius: 12,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(0, 0, 0, 0.12)',
     borderStyle: 'solid',
     position: "relative",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
+    ...SharedShadowStyles
   },
   inner: {
     position: "relative",
@@ -33,8 +27,8 @@ export const ListItemStyles = StyleSheet.create({
   content: {
     position: "absolute",
     bottom: 0,
-    backgroundColor: '#fff',
-    color: '#000',
+    backgroundColor: ItemBg,
+    color: SecondaryColor,
     paddingTop: 2,
     paddingBottom: 2,
     paddingLeft: 6,

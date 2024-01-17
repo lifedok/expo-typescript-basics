@@ -1,22 +1,17 @@
 import { StyleSheet } from "react-native";
+import { SharedShadowStyles } from "../../../shared/styles";
+import { ProgressBg, SecondaryBg } from "../../../shared/colors";
 
 export const ProgressListStyles = StyleSheet.create({
   container: {
     padding: 8,
-    backgroundColor: '#e5e5eb',
+    backgroundColor: ProgressBg,
     borderRadius: 25,
 
-    shadowColor: "#000000",
-    shadowOffset: {
-      width: 3,
-      height: 3,
-    },
-    shadowOpacity:  0.18,
-    shadowRadius: 4.59,
-    elevation: 5
+    ...SharedShadowStyles
   },
   inner: {
-    backgroundColor: '#FFF',
+    backgroundColor: SecondaryBg,
     borderRadius: 17,
     gap: 20,
     paddingHorizontal: 18,
