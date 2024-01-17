@@ -22,10 +22,10 @@ export class HomeScreen extends Component<{ props }, HomeScreenStateProps> {
     this.state = {
       isLoading: false,
       listData: [],
-      width: null,
+      width: undefined,
       searchValue: '',
       filteredListData: []
-    } as HomeScreenStateProps
+    }
   }
 
   async updateListData() {

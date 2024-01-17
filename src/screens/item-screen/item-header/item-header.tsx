@@ -1,26 +1,19 @@
 import React from "react";
-import {Header, Icon} from "react-native-elements";
-import { PrimaryBgLight } from "../../../shared/colors";
+import {Icon} from "react-native-elements";
+import { View } from "react-native";
 
 export default function ItemHeader({navigation}) {
 
   return (
-    <Header
-      containerStyle={{
-        backgroundColor: PrimaryBgLight,
-        borderBottomWidth: 0,
-        shadowColor: "transparent",
-      }}
-      leftComponent={
-        <Icon
-          name="keyboard-arrow-left"
-          color="#fff"
-          size={40}
-          onPress={() => {
-            navigation.goBack();
-          }}
-        />
-      }
-    />
-  );
+    <View style={{width: 42, height: 42}}>
+      <Icon
+        name="keyboard-arrow-left"
+        color="#fff"
+        size={40}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      />
+    </View>
+  )
 }

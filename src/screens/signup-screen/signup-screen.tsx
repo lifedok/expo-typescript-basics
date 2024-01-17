@@ -28,7 +28,7 @@ export class SignupScreen extends Component<{ props }, SignupScreenStateProps> {
       password: '',
       confirmPassword: '',
       isLoading: false,
-    } as SignupScreenStateProps
+    }
   }
 
   isFormError(): boolean {
