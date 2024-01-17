@@ -8,14 +8,14 @@ import { Icon, SearchBar } from "react-native-elements";
 import { InputBg } from "../../shared/colors";
 
 interface HomeScreenStateProps {
-  isLoading: boolean;
-  listData: [];
-  width: number;
-  searchValue: string;
-  filteredListData: [];
+  isLoading?: boolean;
+  listData?: any;
+  width?: number;
+  searchValue?: string;
+  filteredListData?: any;
 }
 
-export class HomeScreen extends Component<{ props }, {}> {
+export class HomeScreen extends Component<{ props }, HomeScreenStateProps> {
 
   constructor(props: any) {
     super(props);
@@ -49,7 +49,7 @@ export class HomeScreen extends Component<{ props }, {}> {
   }
 
   searchValue(value) {
-    const filteredList = (this.state as HomeScreenStateProps).filteredListData.filter(
+    const filteredList = this.state.filteredListData.filter(
       (item) => {
         let itemName = (item as any).name.toLowerCase();
         let searchItemName = value.toLowerCase();
@@ -61,7 +61,6 @@ export class HomeScreen extends Component<{ props }, {}> {
   }
 
   render() {
-    const state = (this.state as HomeScreenStateProps);
     const {navigation} = this.props;
     return (
       <View style={[SharedStyles.contentWrapper]}>
@@ -73,7 +72,7 @@ export class HomeScreen extends Component<{ props }, {}> {
             containerStyle={{backgroundColor: "transparent", flex: 1}}
             lightTheme={true}
             round={true}
-            value={state.searchValue}
+            value={this.state.searchValue}
             onChangeText={(value) => this.searchValue(value)}
           />
           <Icon
@@ -85,7 +84,7 @@ export class HomeScreen extends Component<{ props }, {}> {
         </View>
 
         {
-          state.isLoading ? <LoaderWithInfo/> : <List list={state.listData}/>
+          this.state.isLoading ? <LoaderWithInfo/> : <List list={this.state.listData}/>
         }
       </View>
     )
