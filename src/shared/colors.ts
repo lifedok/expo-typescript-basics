@@ -7,6 +7,7 @@ const SecondaryBg = "#fff";
 const PrimaryTextColor = '#002856'
 const SecondaryTextColor = '#0782f9'
 const SecondaryDarkTextColor = '#5868F9'
+const WarningTextColor = '#C22543FF'
 
 // components
 const ItemBg = SecondaryBg;
@@ -30,6 +31,7 @@ export {
   PrimaryTextColor,
   SecondaryTextColor,
   SecondaryDarkTextColor,
+  WarningTextColor,
 
   ItemBg,
   InputBg,

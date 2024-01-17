@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { PrimaryTextColor, SecondaryBg, SecondaryColor, SecondaryTextColor } from "./colors";
+import { PrimaryTextColor, SecondaryBg, SecondaryColor, SecondaryTextColor, WarningTextColor } from "./colors";
 
 const SharedStyles = StyleSheet.create({
   viewCenter: {
@@ -34,6 +34,16 @@ const LoginSharedStyles = StyleSheet.create({
   content: {
     width: '75%',
     alignItems: 'center'
+  },
+  errorText: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: WarningTextColor,
+    paddingTop: 8,
+    paddingHorizontal: 12,
+    display: 'flex',
+    width: '100%',
+    flexDirection: 'row-reverse'
   },
   text: {
     fontSize: 24,
