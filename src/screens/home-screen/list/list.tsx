@@ -33,7 +33,6 @@ export class List extends Component<ListProps, {}> {
   }
 
   findDimensions(layout) {
-    console.log('findDimensions => layout', layout) // TODO: change width on resize
     const {width} = layout;
     this.setWidth(width);
   }
@@ -75,9 +74,9 @@ export class List extends Component<ListProps, {}> {
         style={{paddingLeft: PRIMARY_VIEW_LEFT_PADDING, paddingRight: PRIMARY_VIEW_RIGHT_PADDING}}
         onLayout={(event) => this.findDimensions(event.nativeEvent.layout)}
         renderItem={(item) => this.renderItem(item)}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item) => item.name.toString()}
         ListFooterComponent={<View><Text style={{padding: 12}}/></View>}
-        initialNumToRender={10}
+        initialNumToRender={20}
         ListEmptyComponent={() => (
           <View style={{alignItems: 'center', justifyContent: 'center', paddingTop: 32, paddingBottom: 32, flex: 1}}>
             <Text style={{color: '#5868F9', fontSize: 16}}>No results</Text>
